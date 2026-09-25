@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Hero!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#fff8fb] text-zinc-900 min-h-screen overflow-hidden font-sans select-none">
+
+  <!-- SKYLINE BERLAPIS (JAUH -> TENGAH -> DEKAT), GRADASI ADA DI DALAM SILUET -->
+    <div class="city-layer city-layer--back" aria-hidden="true">
+    <svg viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#ff9fd6"><rect x="0" y="111" width="62.8" height="188.6" />
+      <rect x="9" y="101" width="44" height="11" />
+      <rect x="64.2" y="41" width="46" height="258.6" />
+      <rect x="75" y="-12" width="24" height="53" />
+      <rect x="81" y="-22" width="12" height="10" />
+      <rect x="106.3" y="94" width="101.5" height="206.1" />
+      <rect x="122" y="85" width="70" height="9" />
+      <rect x="213.5" y="131" width="27.5" height="168.8" />
+      <rect x="218" y="122" width="19" height="9" />
+      <rect x="238.3" y="23" width="100.5" height="276.8" />
+      <rect x="252" y="13" width="72" height="11" />
+      <rect x="337.9" y="29" width="37.5" height="271.4" />
+      <rect x="384.3" y="111" width="64.9" height="189" />
+      <rect x="398" y="67" width="37" height="44" />
+      <rect x="408" y="58" width="19" height="10" />
+      <rect x="455.4" y="128" width="149.1" height="172.4" />
+      <rect x="600.7" y="28" width="90.8" height="271.9" />
+      <rect x="616" y="19" width="60" height="9" />
+      <rect x="695.1" y="8" width="127.2" height="291.5" />
+      <rect x="722" y="-71" width="73" height="80" />
+      <rect x="740" y="-86" width="37" height="15" />
+      <rect x="831.1" y="122" width="113.6" height="177.6" />
+      <rect x="947.3" y="91" width="122.5" height="208.9" />
+      <rect x="1069.5" y="129" width="24.8" height="171.1" />
+      <rect x="1076" y="86" width="12" height="43" />
+      <rect x="1079" y="74" width="6" height="12" />
+      <rect x="1100.7" y="25" width="32.4" height="275.4" />
+      <rect x="1142" y="93" width="41.9" height="206.8" />
+      <rect x="1180.3" y="70" width="125.2" height="230.2" />
+      <rect x="1203" y="60" width="80" height="10" />
+      <rect x="1309.2" y="88" width="23.9" height="212" />
+      <rect x="1334" y="132" width="94.9" height="167.6" />
+      <rect x="1352" y="98" width="58" height="35" />
+      <rect x="1367" y="85" width="29" height="13" />
+      <rect x="1431.4" y="76" width="136.5" height="223.5" />
+      <rect x="1565.5" y="49" width="40.3" height="250.6" />
+      <rect x="1584.4" y="3" width="2.4" height="46" />
+      <circle cx="1586" cy="3" r="3" />
+      <rect x="1614.9" y="122" width="87.5" height="178.4" /></g>
+    </svg>
+  </div>
+
+  <div class="city-layer city-layer--front" aria-hidden="true">
+    <svg viewBox="0 0 1600 200" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#ec3f96"><rect x="0" y="86" width="119.3" height="114" />
+      <polygon points="0,86 119.3,86 60,41" />
+      <rect x="120.2" y="26" width="50.2" height="174.3" />
+      <rect x="134" y="-14" width="23" height="40" />
+      <rect x="140" y="-29" width="11" height="15" />
+      <rect x="177.2" y="98" width="115.2" height="102" />
+      <rect x="289.7" y="42" width="62.5" height="157.5" />
+      <rect x="302" y="3" width="39" height="40" />
+      <rect x="311" y="-13" width="19" height="16" />
+      <rect x="352.4" y="68" width="27.4" height="132.1" />
+      <rect x="357" y="61" width="19" height="7" />
+      <rect x="377.7" y="56" width="22.2" height="144.4" />
+      <polygon points="377.7,56 399.9,56 389,48" />
+      <rect x="407.4" y="103" width="34.5" height="97.5" />
+      <rect x="443.2" y="62" width="56.3" height="137.7" />
+      <rect x="499.5" y="85" width="32.1" height="114.9" />
+      <rect x="502" y="79" width="27" height="7" />
+      <rect x="537.2" y="43" width="71.6" height="156.7" />
+      <rect x="605.9" y="46" width="31.9" height="153.9" />
+      <rect x="611" y="40" width="23" height="6" />
+      <rect x="646.1" y="77" width="110.6" height="122.5" />
+      <rect x="761.6" y="57" width="59.9" height="143.4" />
+      <rect x="768" y="47" width="48" height="10" />
+      <rect x="818.4" y="11" width="26.5" height="188.8" />
+      <rect x="824" y="-35" width="15" height="46" />
+      <rect x="828" y="-49" width="7" height="14" />
+      <rect x="852.2" y="57" width="119.8" height="142.9" />
+      <polygon points="852.2,57 972,57 912,22" />
+      <rect x="974" y="56" width="41.5" height="143.7" />
+      <rect x="1023.7" y="87" width="60.8" height="112.8" />
+      <rect x="1092.6" y="66" width="70.8" height="134.3" />
+      <polygon points="1092.6,66 1163.4,66 1128,42" />
+      <rect x="1159.9" y="80" width="69.1" height="119.9" />
+      <rect x="1226.3" y="52" width="116.1" height="147.7" />
+      <polygon points="1226.3,52 1342.4,52 1284,3" />
+      <rect x="1348.3" y="74" width="129.7" height="125.8" />
+      <polygon points="1348.3,74 1478,74 1413,37" />
+      <rect x="1481.6" y="93" width="55.7" height="107.2" />
+      <rect x="1543.1" y="41" width="31.3" height="159.3" />
+      <rect x="1574" y="99" width="54.6" height="100.7" />
+      <polygon points="1574,99 1628.6,99 1601,75" />
+      <rect x="1636.5" y="59" width="65.2" height="141.4" />
+      <polygon points="1636.5,59 1701.8,59 1669,34" /></g>
+    </svg>
+  </div>
+
+
+  <div class="halftone-overlay" aria-hidden="true"></div>
+
+  <main class="w-full h-screen relative z-10 flex items-center justify-center">
+
+    <!-- MENU 1: HOME / WISH -->
+    <section id="step-0" class="step-content active w-full h-full flex items-center justify-center absolute inset-0">
+      <div class="home-wrap flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-16 lg:gap-24 p-4 sm:p-6 max-w-6xl lg:max-w-7xl xl:max-w-[1400px] w-full">
+
+        <div class="lanyard-wrapper relative flex items-center justify-center scale-90 sm:scale-100">
+          <!-- SVG 1: Badan tali -->
+          <svg class="rope-svg absolute top-[-300px] left-1/2 -translate-x-1/2 overflow-visible z-0 pointer-events-none" width="300" height="600" viewBox="350 0 300 600">
+            <defs>
+              <linearGradient id="fabricGrad" x1="0" y1="0" x2="60" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#ff9fd6" />
+                <stop offset="100%" stop-color="#ec1e79" />
+              </linearGradient>
+
+              <pattern id="fabricTexture" width="18" height="18" patternUnits="userSpaceOnUse">
+                <path d="M0 0 L18 18 M18 0 L0 18" stroke="#ffffff" stroke-width="1.4" stroke-opacity="0.45" />
+              </pattern>
+
+              <filter id="fabricShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+              </filter>
+            </defs>
+
+            <path id="ropePathOuter" d="M 500 0 Q 500 200 500 300"
+                  stroke="rgba(0,0,0,0.6)" stroke-width="44" fill="none" stroke-linecap="butt" stroke-linejoin="round" />
+
+            <path id="ropePath" d="M 500 0 Q 500 200 500 300"
+                  stroke="url(#fabricGrad)" stroke-width="40" fill="none" stroke-linecap="butt" stroke-linejoin="round" filter="url(#fabricShadow)" />
+
+            <path id="ropePathTexture" d="M 500 0 Q 500 200 500 300"
+                  stroke="url(#fabricTexture)" stroke-width="40" fill="none" stroke-linecap="butt" stroke-linejoin="round" />
+
+            <g id="ropeBuckle">
+              <rect x="-16" y="-14" width="32" height="28" rx="4" fill="#0a0a0a" stroke="#ec1e79" stroke-width="1.5"/>
+              <rect x="-6" y="-5" width="12" height="10" rx="2" fill="#ec1e79"/>
+            </g>
+          </svg>
+
+          <div id="lanyardCard" class="lanyard-card relative z-10 w-[160px] h-[225px] sm:w-[190px] sm:h-[265px] md:w-[220px] md:h-[310px] lg:w-[280px] lg:h-[390px] xl:w-[320px] xl:h-[450px] rounded-2xl overflow-hidden shadow-2xl cursor-grab active:cursor-grabbing border-2 border-pink-500/60 transition-all duration-300">
+            <div class="card-notch absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-3 lg:w-12 lg:h-4 bg-zinc-400 rounded-md z-20 shadow-sm"></div>
+            <img src="images/bday.png" alt="Profile" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale-[15%]">
+            <div class="absolute inset-0 card-web-overlay pointer-events-none"></div>
+            <div class="card-topbar absolute top-2.5 left-2.5 right-2.5 lg:top-4 lg:left-4 lg:right-4 flex justify-between items-center z-20">
+              <span class="card-brand text-[8px] sm:text-[9px] lg:text-xs font-bold tracking-widest text-pink-400 font-hero uppercase">Hero Access</span>
+              <span class="card-dot w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-pink-500 shadow-[0_0_8px_2px_rgba(236,30,121,0.85)]"></span>
+            </div>
+            <div class="card-footer absolute bottom-2.5 left-2.5 right-2.5 lg:bottom-5 lg:left-4 lg:right-4 text-center bg-[#ec1e79] border border-pink-400/60 shadow-lg rounded-xl px-2 py-2 lg:py-3.5">
+              <h3 class="card-name font-hero text-base sm:text-xl lg:text-3xl tracking-wider text-white">NAMA DIA</h3>
+              <p class="card-status text-[9px] sm:text-[10px] lg:text-xs text-white tracking-[0.2em] font-semibold uppercase mt-0.5 lg:mt-1">Legend Status</p>
+            </div>
+          </div>
+
+          <!-- SVG 2: HOOK -->
+          <svg class="hook-svg absolute top-[-300px] left-1/2 -translate-x-1/2 overflow-visible z-20 pointer-events-none" width="300" height="600" viewBox="350 0 300 600">
+            <g id="ropeHook">
+              <rect x="-13" y="-16" width="26" height="24" rx="4" fill="#111" stroke="#ec1e79" stroke-width="1"/>
+              <circle cx="0" cy="6" r="6" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+              <path d="M -6 6 A 6 6 0 0 1 6 6 L 6 14 A 4 4 0 0 1 2 18 L -2 18"
+                    fill="none" stroke="#9ca3af" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="wish-container relative text-center md:text-left max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl flex flex-col items-center md:items-start gap-2.5 sm:gap-4 lg:gap-6 z-20">
+          <div class="comic-burst" aria-hidden="true"></div>
+          <div>
+            <span class="mission-badge inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 lg:px-4 lg:py-1.5 bg-transparent text-black rounded-full text-[10px] sm:text-xs lg:text-sm font-bold tracking-[0.2em] uppercase border border-black">
+              Special Mission
+            </span>
+          </div>
+
+          <h1 class="hero-title font-hero animated-hero text-[40px] sm:text-[650px] md:text-[70px] lg:text-[80px] xl:text-[95px] tracking-wide leading-[1.05] py-1 sm:py-2">
+            HAPPY<br class="hero-break"> BIRTHDAY</h1>
+          <p class="hero-desc text-zinc-900 text-[11px] sm:text-[14px] md:text-[15px] lg:text-[16.5px] leading-relaxed font-medium">
+            Another year stronger, another year bolder. Semoga di umur baru ini makin bahagia, makin sehat, dan semua misi hidupmu berhasil dituntaskan.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MENU 2: LETTER / MISSION LOG -->
+    <!-- MENU 2: LETTER / MISSION LOG -->
+<section id="step-1" class="step-content w-full h-full flex flex-col items-center justify-center absolute inset-0 p-4 sm:p-6 overflow-hidden">
+<!-- SPIDER KIRI -->
+<div class="spider-hanging spider-left">
+  <div class="spider-thread"></div>
+  <svg class="spider-svg" viewBox="0 0 100 100" width="46" height="46">
+    <!-- Pantat (Menyatu ke Benang Atas) -->
+    <ellipse cx="50" cy="32" rx="14" ry="18" fill="#0a0a0a" />
+    <!-- Kepala (Di bawah) -->
+    <circle cx="50" cy="54" r="10" fill="#0a0a0a" />
+
+    <!-- KAKI DEPAN (MENGHADAP KE ATAS / DEPAN) -->
+    <g class="spider-legs-1">
+      <!-- Pasang 1 Kiri & Kanan (Melengkung Ke Atas) -->
+      <path d="M 42 30 Q 18 10 10 22" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 30 Q 82 10 90 22" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-2">
+      <!-- Pasang 2 Kiri & Kanan (Agak Menyamping Atas) -->
+      <path d="M 40 40 Q 12 28 6 42" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 60 40 Q 88 28 94 42" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+
+    <!-- KAKI BELAKANG (MENGHADAP KE BAWAH / BELAKANG) -->
+    <g class="spider-legs-2">
+      <!-- Pasang 3 Kiri & Kanan (Menyamping Bawah) -->
+      <path d="M 42 48 Q 18 55 12 70" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 48 Q 82 55 88 70" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-1">
+      <!-- Pasang 4 Kiri & Kanan (Melengkung Ke Bawah) -->
+      <path d="M 45 56 Q 25 75 20 88" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 55 56 Q 75 75 80 88" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+  </svg>
+</div>
+
+<!-- SPIDER KANAN -->
+<div class="spider-hanging spider-right">
+  <div class="spider-thread"></div>
+  <svg class="spider-svg" viewBox="0 0 100 100" width="40" height="40">
+    <ellipse cx="50" cy="32" rx="14" ry="18" fill="#0a0a0a" />
+    <circle cx="50" cy="54" r="10" fill="#0a0a0a" />
+
+    <g class="spider-legs-1">
+      <path d="M 42 30 Q 18 10 10 22" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 30 Q 82 10 90 22" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-2">
+      <path d="M 40 40 Q 12 28 6 42" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 60 40 Q 88 28 94 42" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+
+    <g class="spider-legs-2">
+      <path d="M 42 48 Q 18 55 12 70" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 48 Q 82 55 88 70" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-1">
+      <path d="M 45 56 Q 25 75 20 88" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 55 56 Q 75 75 80 88" stroke="#0a0a0a" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+  </svg>
+</div>
+      <div class="relative text-center mb-3 sm:mb-5 lg:mb-6 z-20">
+        <div class="comic-burst" aria-hidden="true"></div>
+        <h2 class="letter-header-title font-hero text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.15em] text-zinc-900 drop-shadow-sm">
+          MISSION LOG
+        </h2>
+        <p class="letter-header-sub text-[10px] sm:text-xs md:text-sm text-zinc-900 mt-0.5 font-semibold uppercase tracking-widest">
+          A message for your special day
+        </p>
+      </div>
+
+      <div class="letter-card max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl w-full bg-white/90 backdrop-blur-md border-2 border-pink-300 p-5 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl relative shadow-2xl shadow-pink-200/60 space-y-3 sm:space-y-4">
+
+        <div class="letter-icon absolute -top-4 -left-2 sm:-top-5 sm:-left-3 bg-pink-500 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center text-lg sm:text-2xl shadow-lg border-2 border-black">
+          🕸️
+        </div>
+
+        <div class="letter-text space-y-2.5 sm:space-y-3.5 lg:space-y-4 text-zinc-700 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium pt-1 sm:pt-2"></div>
+      </div>
+    </section>
+
+    <!-- MENU 3: GALLERY (DRIFT WALL) -->
+    <section id="step-2" class="step-content w-full h-full flex items-center justify-center absolute inset-0">
+
+      <div class="gallery-header-wrap absolute top-6 sm:top-8 lg:top-12 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none w-full px-4">
+        <div class="comic-burst" aria-hidden="true"></div>
+        <h2 class="gallery-header-title font-hero text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-[0.15em] text-zinc-900 drop-shadow-sm">
+          THE ARCHIVES
+        </h2>
+        <p class="gallery-header-sub text-[10px] sm:text-xs md:text-sm lg:text-base text-zinc-900 mt-0.5 sm:mt-1 font-semibold uppercase tracking-widest">
+          A glimpse of our moments
+        </p>
+      </div>
+
+      <div class="drift-wall w-full h-full relative overflow-hidden" id="driftWall">
+        <div class="drift-wall__plane absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 scale-110 rotate-x-12 -rotate-y-10" id="driftPlane">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="fixed bottom-6 left-0 right-0 z-50 flex items-center justify-center gap-2 w-full px-4 pointer-events-none">
+
+    <button id="prevBtn" onclick="changeStep(-1)" class="pointer-events-auto shrink-0 whitespace-nowrap leading-none px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white border-2 border-zinc-900/80 hover:bg-pink-50 transition shadow-lg flex items-center justify-center text-zinc-900 disabled:opacity-30 disabled:pointer-events-none">
+      <span>←</span><span class="ml-1">Prev</span>
+    </button>
+
+    <span id="stepIndicator" class="pointer-events-auto shrink-0 whitespace-nowrap leading-none text-xs font-bold text-white px-3 py-2.5 bg-zinc-900 border-2 border-zinc-900 rounded-full shadow-lg flex items-center justify-center">
+      1 / 3
+    </span>
+
+    <button id="nextBtn" onclick="changeStep(1)" class="pointer-events-auto shrink-0 whitespace-nowrap leading-none px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-900 hover:bg-zinc-800 transition shadow-lg flex items-center justify-center text-white">
+      <span>Next</span><span class="ml-1">→</span>
+    </button>
+
+  </div>
+
+  <script src="bg-shards.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

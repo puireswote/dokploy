@@ -1,0 +1,1031 @@
+:root {
+    --strawberry: #e63946;
+    --strawberry-soft: #ffb7b2;
+    --cream-yellow: #fff3b0;
+    --vanilla: #fefae0;
+    --soft-pink: #ffe5ec;
+    --text-dark: #4a3e3d;
+    --text-muted: #8c7a78;
+    --bg-gradient: linear-gradient(135deg, #fff0f3 0%, #fff9e6 50%, #ffe5ec 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header & Nav */
+header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Dukungan browser Safari */
+    position: fixed;            /* GANTI sticky MENJADI fixed agar benar-benar mengunci posisi */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;             /* Angka z-index dinaikkan agar selalu di atas elemen floating */
+    border-bottom: 2px solid var(--strawberry-soft);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.08);
+}
+
+.logo-full, .logo-short {
+    font-family: Helvetica, cursive;
+    font-size: 26px;
+    color: var(--strawberry);
+    font-weight: 700;
+    flex-shrink: 0;             /* Mencegah logo terkikis/mengecil */
+}
+
+/* Mengizinkan panah terlihat di luar wrapper tanpa terpotong */
+.nav-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    overflow: visible; /* Diubah dari hidden menjadi visible agar panah tidak kepotong */
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 6px 0;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;      /* Sembunyikan scrollbar bawaan */
+    -ms-overflow-style: none;
+}
+
+nav::-webkit-scrollbar {
+    display: none;              /* Chrome/Safari */
+}
+
+nav button {
+    background: transparent;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+nav button:hover, nav button.active {
+    background: var(--strawberry);
+    color: white;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.25);
+}
+
+.nav-arrow {
+    font-size: 16px;
+    color: var(--strawberry);
+    padding: 4px 8px;           /* Menambah ruang sentuh (touch area) untuk HP */
+    animation: bounceRight 1.2s infinite alternate;
+    pointer-events: auto;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+}
+@keyframes bounceRight {
+    from { transform: translateX(0); opacity: 0.6; }
+    to { transform: translateX(5px); opacity: 1; }
+}
+
+@media (min-width: 768px) {
+    .nav-wrapper { max-width: 100%; }
+    .nav-arrow { display: none; }
+}
+
+/* Container & Pages */
+.container {
+    max-width: 900px;
+    margin: 70px auto 0 auto;   /* Beri margin-top 70px untuk memberi ruang header fixed */
+    padding: 24px 16px;
+    flex: 1;
+    width: 100%;
+}
+.page {
+    display: none;
+    animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Typography & Cards */
+@font-face {
+    font-family: "BrittanySignature";
+    src: url("BrittanySignature.ttf") format("truetype");
+    font-weight:bold; 
+    font-style: normal;
+    font-display: swap;
+}
+
+h1, h2 {
+    font-family: 'BrittanySignature', cursive;
+    color: var(--strawberry);
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.subtitle { 
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+/* Tema Card & Border Seragam */
+.card, .theme-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 25px rgba(230, 57, 70, 0.08);
+    border: 2px solid var(--strawberry-soft);
+    margin-bottom: 20px;
+}
+
+.hero-banner {
+    background: linear-gradient(135deg, #ffccd5, #fff3b0);
+    border-radius: 24px;
+    padding: 36px 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(230, 57, 70, 0.1);
+    margin-bottom: 20px;
+    border: 2px solid var(--strawberry-soft);
+}
+
+.hero-banner h1 {
+    font-size: 40px;
+    margin-bottom: 12px;
+    color: #d62828;
+}
+
+.hero-banner p {
+    font-size: 15px;
+    color: #5d4037;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.badge-tag {
+    display: inline-block;
+    background: white;
+    color: var(--strawberry);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.grid-2 .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* =========================================
+   PIXEL CAKE & CANDLE
+   ========================================= */
+.cake-container {
+    position: relative;
+    width: 160px;
+    height: 150px;
+    margin: 0 auto 10px auto;
+}
+
+.pixel-flame {
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 16px;
+    background: #ffb703;
+    border: 3px solid #030814;
+    border-radius: 50% 50% 20% 20%;
+    z-index: 9;
+    animation: pixelFlame 0.6s infinite alternate;
+    transition: opacity 0.3s ease;
+}
+
+.pixel-flame::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 3px;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.pixel-flame.out {
+    opacity: 0;
+    animation: none;
+}
+
+.pixel-candle {
+    position: absolute;
+    left: 50%;
+    top: 21px;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 40px;
+    background: repeating-linear-gradient(0deg, #e63946 0 7px, #ffb7b2 7px 14px);
+    border: 3px solid #030814;
+    box-sizing: border-box;
+    z-index: 8;
+}
+
+.pixel-candle span {
+    position: absolute;
+    left: 50%;
+    top: -7px;
+    width: 4px;
+    height: 7px;
+    transform: translateX(-50%);
+    background: #030814;
+}
+
+.pixel-cream {
+    position: absolute;
+    left: 50%;
+    top: 58px;
+    transform: translateX(-50%);
+    width: 116px;
+    height: 16px;
+    background: #fff3b0;
+    border: 4px solid #030814;
+    z-index: 7;
+}
+
+.pixel-cream::before {
+    content: "";
+    position: absolute;
+    left: 12px;
+    bottom: -10px;
+    width: 12px;
+    height: 10px;
+    background: #fff3b0;
+    border-left: 4px solid #030814;
+    border-right: 4px solid #030814;
+    border-bottom: 4px solid #030814;
+}
+
+.pixel-cream::after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    bottom: -7px;
+    width: 10px;
+    height: 7px;
+    background: #fff3b0;
+    border-left: 4px solid #030814;
+    border-right: 4px solid #030814;
+    border-bottom: 4px solid #030814;
+}
+
+.pixel-cake-body {
+    position: absolute;
+    left: 50%;
+    top: 73px;
+    transform: translateX(-50%);
+    width: 124px;
+    height: 57px;
+    background: #e63946;
+    border: 4px solid #030814;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+.cake-highlight {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 16px;
+    height: 27px;
+    background: #ff758f;
+}
+
+.cake-shadow {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 18px;
+    height: 20px;
+    background: #9e2a2b;
+}
+
+.pixel-cake-body::before {
+    content: "•  •  •";
+    position: absolute;
+    left: 24px;
+    top: 18px;
+    color: #fff3b0;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+
+.pixel-plate {
+    position: absolute;
+    left: 50%;
+    bottom: 0px;
+    transform: translateX(-50%);
+    width: 154px;
+    height: 13px;
+    background: #fefae0;
+    border: 4px solid #030814;
+    box-sizing: border-box;
+    z-index: 3;
+}
+
+.pixel-plate::after {
+    content: "";
+    position: absolute;
+    left: 8px;
+    right: -8px;
+    bottom: -8px;
+    height: 5px;
+    background: #030814;
+}
+
+@keyframes pixelFlame {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-3px); }
+}
+
+/* =========================================
+   UI COMPONENTS & BUTTONS
+   ========================================= */
+/* Tombol Utama (Warna Seragam Strawberry) */
+.btn-action {
+    background: var(--strawberry);
+    color: white;
+    border: 2px solid var(--strawberry);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(230, 57, 70, 0.25);
+    transition: all 0.2s ease;
+    display: inline-block;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+    background: #d62839;
+    border-color: #d62839;
+    box-shadow: 0 6px 18px rgba(230, 57, 70, 0.35);
+}
+
+.swatch-group {
+    display: flex;
+    border-radius: 14px;
+    overflow: hidden;
+    height: 70px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 16px;
+}
+
+.swatch {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.note-box {
+    background: #fff8f8;
+    border-left: 4px solid var(--strawberry);
+    padding: 16px;
+    border-radius: 0 12px 12px 0;
+}
+
+.note-box h4 { color: var(--strawberry); margin-bottom: 4px; }
+
+.builder-option {
+    background: #fdfaf6;
+    padding: 14px;
+    border-radius: 14px;
+    border: 2px solid #eee;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.builder-option.selected {
+    border-color: var(--strawberry);
+    background: #ffe5ec;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+    background: white;
+    border-top: 1px solid #ffe0e0;
+    margin-top: auto;
+}
+
+.floating-heart {
+    display: inline-block;
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+/* =========================================
+   MUSIC PLAYER STYLES
+   ========================================= */
+.music-player-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.music-player-card .btn-action {
+    margin-top: auto;
+}
+
+.music-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    background: #ffe5ec;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px auto;
+    box-shadow: 0 4px 10px rgba(255, 183, 178, 0.4);
+}
+
+.pink-note-icon {
+    width: 32px;
+    height: 32px;
+    stroke: var(--strawberry);
+}
+
+.song-title {
+    color: var(--strawberry);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.song-artist {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background: #ffe5ec;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--strawberry);
+    border-radius: 10px;
+    transition: width 0.1s linear;
+}
+
+.btn-mood {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.btn-mood:hover { transform: translateY(-2px); }
+
+/* =========================================
+   GAME STYLES
+   ========================================= */
+.strawberry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.hole {
+    height: 85px;
+    background: #ffe5ec;
+    border: 2px dashed #ffb7b2;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+}
+
+.straw-icon {
+    font-size: 40px;
+    display: none;
+    animation: popUp 0.2s ease-out;
+}
+
+.hole.active .straw-icon { display: block; }
+
+@keyframes popUp {
+    from { transform: scale(0.2) translateY(20px); }
+    to { transform: scale(1) translateY(0); }
+}
+
+/* =========================================
+   3D CAROUSEL (DIPERKECIL)
+   ========================================= */
+.carousel-container {
+    position: relative;
+    height: 380px;
+    width: 100%;
+    max-width: 500px;
+    margin: -30px auto 10px auto;
+    perspective: 1400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* Ukuran Foto Lebih Kecil & Jernih Tanpa Blur */
+.carousel-card {
+    position: absolute;
+    width: 190px;
+    height: 260px;
+    left: 50%;
+    top: 50%;
+    margin-left: -95px;
+    margin-top: -130px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 3px solid #fff;
+    background: #fff;
+    cursor: pointer;
+}
+
+.carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.carousel-controls {
+    margin-top: 12px;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+.btn-carousel {
+    background: var(--strawberry);
+    color: white;
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-carousel:hover {
+    transform: scale(1.1);
+    background: #d62839;
+}
+
+/* Custom Header Mobile Toggle */
+.logo-short { display: none; }
+
+@media (max-width: 600px) {
+    .logo-full { display: none; }
+    .logo-short { display: inline-block; }
+}
+
+/* Style Paragraf Love Letter */
+/* Style Paragraf Love Letter */
+.letter-paragraph {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 16px;
+    text-align: justify;     /* Membuat teks rata kanan-kiri */
+    text-indent: 24px;       /* Membuat baris pertama tiap paragraf menjorok ke dalam */
+}
+
+.letter-paragraph:last-child {
+    margin-bottom: 0;
+}
+
+/* Styling Font Judul yang Berbeda */
+.hero-banner h1 {
+    line-height: 1.8;
+}
+
+/* Style untuk "Happy Birthday," (Font Latin Sambung/Dancing Script) */
+.title-happy {
+    font-family: 'BrittanySignature', cursive;
+    font-size: 60px;
+    color: var(--matcha);
+    font-weight: 700;
+}
+
+/* Style untuk "My Favorite Matcha Strawberry!" (Font Serif Elegan/Playfair) */
+.title-sub {
+    font-family: Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 28px;
+    color:var(--strawberry);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    margin-top: 6px;
+}
+
+/* =========================================
+   PENYERAGAMAN P & H3 (GLOBAL)
+   ========================================= */
+
+/* Aturan Standar Judul Sub-bagian (h3) */
+h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--strawberry);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Aturan Standar Paragraf Deskripsi (p) */
+p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/* Khusus Teks Deskripsi di Dalam Card / Note Box */
+.card p, .note-box p {
+    color: var(--text-dark);
+}
+
+/* Khusus Paragraf yang Butuh Teks Rata Tengah (Abaikan Letter) */
+.hero-banner p, 
+.music-info p, 
+.card[style*="text-align: center"] p {
+    text-align: center;
+}
+
+.floating-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* PENTING: Supaya tombol/teks di belakangnya tetap bisa diklik */
+    z-index: 9999;        /* Angka tinggi agar berada di paling depan/atas konten */
+    overflow: hidden;
+}
+
+.floating-bg .shape {
+    position: absolute;
+    bottom: -60px;
+    animation: floatUp linear infinite;
+    opacity: 0.35; /* Dibuat lebih transparan (35%) biar teks tetap jelas terbaca */
+    filter: drop-shadow(0 2px 8px rgba(230, 57, 70, 0.2));
+}
+
+.floating-bg .red { color: var(--strawberry, #e63946); }
+.floating-bg .pink { color: var(--strawberry-soft, #ffb7b2); }
+.floating-bg .yellow { color: #f4a261; }
+.floating-bg .cream { color: var(--cream-yellow, #ffdac1); }
+
+/* Durasi dipercepat (4s - 7s) & delay dirapatkan biar padat */
+.floating-bg .shape:nth-child(1)  { left: 5%;  width: 22px; height: 22px; animation-duration: 4.5s; animation-delay: 0s; }
+.floating-bg .shape:nth-child(2)  { left: 13%; width: 18px; height: 18px; animation-duration: 6s;   animation-delay: 1.2s; }
+.floating-bg .shape:nth-child(3)  { left: 22%; width: 14px; height: 14px; animation-duration: 4s;   animation-delay: 0.5s; }
+.floating-bg .shape:nth-child(4)  { left: 30%; width: 24px; height: 24px; animation-duration: 5.5s; animation-delay: 2s; }
+.floating-bg .shape:nth-child(5)  { left: 39%; width: 16px; height: 16px; animation-duration: 4.2s; animation-delay: 0.8s; }
+.floating-bg .shape:nth-child(6)  { left: 48%; width: 20px; height: 20px; animation-duration: 6.5s; animation-delay: 2.5s; }
+.floating-bg .shape:nth-child(7)  { left: 57%; width: 22px; height: 22px; animation-duration: 5s;   animation-delay: 1s; }
+.floating-bg .shape:nth-child(8)  { left: 66%; width: 18px; height: 18px; animation-duration: 4.8s; animation-delay: 1.8s; }
+.floating-bg .shape:nth-child(9)  { left: 74%; width: 15px; height: 15px; animation-duration: 5.8s; animation-delay: 0.3s; }
+.floating-bg .shape:nth-child(10) { left: 82%; width: 26px; height: 26px; animation-duration: 4.3s; animation-delay: 1.5s; }
+.floating-bg .shape:nth-child(11) { left: 90%; width: 19px; height: 19px; animation-duration: 6.2s; animation-delay: 0.7s; }
+.floating-bg .shape:nth-child(12) { left: 96%; width: 21px; height: 21px; animation-duration: 5.2s; animation-delay: 2.2s; }
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.8);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.65;
+    }
+    85% {
+        opacity: 0.65;
+    }
+    100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.1);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   STYLE VOUCHER TICKET SVG (PINK)
+   ========================================= */
+/* =========================================
+   STYLE VOUCHER TICKET SVG (LARGER & PINK GRADIENT)
+   ========================================= */
+/* =========================================
+   PIXEL ART TICKET (CSS BOX-SHADOW)
+   ========================================= */
+
+/* Container Luar dengan Efek Floating/Membal */
+.pixel-ticket-wrapper {
+    width: 100px;
+    height: 100px;
+    background: #ffe5ec;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    box-shadow: 0 8px 20px rgba(255, 117, 140, 0.4);
+    animation: pixelFloat 2s ease-in-out infinite alternate;
+}
+
+/* Base Pixel (Tiap 1 "kotak piksel" berukuran 5px) */
+.pixel-ticket {
+    width: 5px;
+    height: 5px;
+    position: relative;
+    /* Menggambar tiket pixel pink dengan stroke outline tua */
+    box-shadow: 
+        /* Outline Luar (Pink Tua / Magenta - #d81b60) */
+        -25px -10px #d81b60, -20px -10px #d81b60, -15px -10px #d81b60, -10px -10px #d81b60, -5px -10px #d81b60, 0px -10px #d81b60, 5px -10px #d81b60, 10px -10px #d81b60, 15px -10px #d81b60, 20px -10px #d81b60,
+        -30px -5px #d81b60, 25px -5px #d81b60,
+        -30px 0px #d81b60, 25px 0px #d81b60,
+        -25px 5px #d81b60, 20px 5px #d81b60, /* Cerukan/Coakan Tiket Kiri & Kanan */
+        -30px 10px #d81b60, 25px 10px #d81b60,
+        -30px 15px #d81b60, 25px 15px #d81b60,
+        -25px 20px #d81b60, -20px 20px #d81b60, -15px 20px #d81b60, -10px 20px #d81b60, -5px 20px #d81b60, 0px 20px #d81b60, 5px 20px #d81b60, 10px 20px #d81b60, 15px 20px #d81b60, 20px 20px #d81b60,
+
+        /* Warna Badan Tiket (Pink Cerah - #ff758c) */
+        -25px -5px #ff758c, -20px -5px #ff758c, -15px -5px #ff758c, -10px -5px #ff758c, -5px -5px #ff758c, 0px -5px #ff758c, 5px -5px #ff758c, 10px -5px #ff758c, 15px -5px #ff758c, 20px -5px #ff758c,
+        -25px 0px #ff758c, -20px 0px #ff758c, -15px 0px #ff758c, -10px 0px #ff758c, -5px 0px #ff758c, 0px 0px #ff758c, 5px 0px #ff758c, 10px 0px #ff758c, 15px 0px #ff758c, 20px 0px #ff758c,
+        -20px 5px #ff758c, -15px 5px #ff758c, -10px 5px #ff758c, -5px 5px #ff758c, 0px 5px #ff758c, 5px 5px #ff758c, 10px 5px #ff758c, 15px 5px #ff758c,
+        -25px 10px #ff758c, -20px 10px #ff758c, -15px 10px #ff758c, -10px 10px #ff758c, -5px 10px #ff758c, 0px 10px #ff758c, 5px 10px #ff758c, 10px 10px #ff758c, 15px 10px #ff758c, 20px 10px #ff758c,
+        -25px 15px #ff758c, -20px 15px #ff758c, -15px 15px #ff758c, -10px 15px #ff758c, -5px 15px #ff758c, 0px 15px #ff758c, 5px 15px #ff758c, 10px 15px #ff758c, 15px 15px #ff758c, 20px 15px #ff758c,
+
+        /* Garis Putus-putus Tengah (Garis Sobekan Tiket Putih - #ffffff) */
+        0px -5px #ffffff,
+        0px 5px #ffffff,
+        0px 15px #ffffff;
+}
+
+/* Animasi Tiket Melayang Halus */
+@keyframes pixelFloat {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-6px) rotate(3deg);
+    }
+}
+
+/* =========================================
+   PIXEL ART HEARTS FOR MOOD
+   ========================================= */
+.pixel-heart-bar {
+    display: flex;
+    justify-content: center;
+    gap: 48px; /* Jarak antar hati disesuaikan karena ukuran hati membesar */
+    margin: 20px 0 30px 0;
+    padding: 10px;
+    background: transparent !important; /* Hilangkan background box */
+    border-radius: 0;
+}
+
+.pixel-heart {
+    width: 8px;  /* Diperbesar 2x lipat dari 4px */
+    height: 8px; /* Diperbesar 2x lipat dari 4px */
+    position: relative;
+    margin: 20px; /* Margin dinaikkan agar offset box-shadow tidak terpotong */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* 1. Hati Pixel Terisi (Pink Cerah Glow) */
+.pixel-heart.filled {
+    transform: scale(1.1);
+    box-shadow: 
+        -16px -16px #d81b60, -8px -16px #d81b60, 8px -16px #d81b60, 16px -16px #d81b60,
+        -24px -8px #d81b60, 0px -8px #d81b60, 24px -8px #d81b60,
+        -24px 0px #d81b60, 24px 0px #d81b60,
+        -16px 8px #d81b60, 16px 8px #d81b60,
+        -8px 16px #d81b60, 8px 16px #d81b60,
+        0px 24px #d81b60,
+
+        -16px -8px #ff4b6e, -8px -8px #ff4b6e, 8px -8px #ff4b6e, 16px -8px #ff4b6e,
+        -16px 0px #ff758c, -8px 0px #ff758c, 0px 0px #ff758c, 8px 0px #ff758c, 16px 0px #ff758c,
+        -8px 8px #ff758c, 0px 8px #ff758c, 8px 8px #ff758c,
+        0px 16px #ff758c;
+}
+
+/* 2. Hati Pixel Kosong (Abu-Abu Redup) */
+.pixel-heart.empty {
+    opacity: 0.5;
+    box-shadow: 
+        -16px -16px #8d99ae, -8px -16px #8d99ae, 8px -16px #8d99ae, 16px -16px #8d99ae,
+        -24px -8px #8d99ae, 0px -8px #8d99ae, 24px -8px #8d99ae,
+        -24px 0px #8d99ae, 24px 0px #8d99ae,
+        -16px 8px #8d99ae, 16px 8px #8d99ae,
+        -8px 16px #8d99ae, 8px 16px #8d99ae,
+        0px 24px #8d99ae,
+
+        -16px -8px #edf2f4, -8px -8px #edf2f4, 8px -8px #edf2f4, 16px -8px #edf2f4,
+        -16px 0px #edf2f4, -8px 0px #edf2f4, 0px 0px #edf2f4, 8px 0px #edf2f4, 16px 0px #edf2f4,
+        -8px 8px #edf2f4, 0px 8px #edf2f4, 8px 8px #edf2f4,
+        0px 16px #edf2f4;
+}
+
+
+/* =========================================
+   LOVE METER / BATTERY LEVEL
+   ========================================= */
+.love-meter-container {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.love-meter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.love-percent {
+    background: #ffe5ec;
+    color: var(--strawberry);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* Outer Bar (Wadah Baterai) */
+.love-bar-outer {
+    width: 100%;
+    height: 42px;
+    background: #f1f1f1;
+    border-radius: 14px;
+    padding: 4px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+/* Inner Bar (Isi Baterai Gradasi) */
+.love-bar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    display: flex;
+    background: linear-gradient(90deg, #fff3b0 0%, #ffb7b2 50%, #e63946 100%);
+    box-shadow: 0 2px 8px rgba(230, 57, 70, 0.3);
+}
+
+/* Teks Segmentasi di Dalam Bar */
+.love-segment {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-dark);
+    border-right: 1px dashed rgba(255, 255, 255, 0.6);
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.love-segment:last-child {
+    border-right: none;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+
+/* =========================================
+   RESPONSIVE MEDIA QUERY (MOBILE)
+   ========================================= */
+@media (max-width: 468px) {
+    /* Mengecilkan Judul H1 (Happy Birthday) & Subtitle di Banner Hero */
+   
+    
+    .title-sub {
+        font-size: 17px !important; /* Ukuran asli 24px */
+    }
+
+    /* Mengecilkan Judul H2 Halaman (seperti "Love Letter", "Ticket to You", dll.) */
+    h2 {
+        font-size: 30px !important; /* Ukuran asli 40px */
+    }
+
+    /* Mengecilkan Subtitle Halaman */
+    .subtitle {
+        font-size: 12px !important;
+    }
+}

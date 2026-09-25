@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday, Hero!</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#0a0a0f] text-white min-h-screen overflow-hidden font-sans select-none">
+
+  <main class="w-full h-screen relative z-10 flex items-center justify-center">
+
+    <!-- MENU 1: HOME / WISH -->
+    <section id="step-0" class="step-content active w-full h-full flex items-center justify-center absolute inset-0">
+      <div class="home-wrap flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6 md:gap-16 lg:gap-24 p-4 sm:p-6 max-w-6xl lg:max-w-7xl xl:max-w-[1400px] w-full">
+
+        <div class="lanyard-wrapper relative flex items-center justify-center scale-90 sm:scale-100">
+          <!-- SVG 1: Badan tali -->
+          <svg class="rope-svg absolute top-[-300px] left-1/2 -translate-x-1/2 overflow-visible z-0 pointer-events-none" width="300" height="600" viewBox="350 0 300 600">
+            <defs>
+              <linearGradient id="fabricGrad" x1="0" y1="0" x2="60" y2="0" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#0d0d0d" />
+                <stop offset="100%" stop-color="#1a0000" />
+              </linearGradient>
+
+              <pattern id="fabricTexture" width="18" height="18" patternUnits="userSpaceOnUse">
+                <path d="M0 0 L18 18 M18 0 L0 18" stroke="#dc2626" stroke-width="1.4" stroke-opacity="0.55" />
+              </pattern>
+
+              <filter id="fabricShadow" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.5" />
+              </filter>
+            </defs>
+
+            <path id="ropePathOuter" d="M 500 0 Q 500 200 500 300"
+                  stroke="rgba(0,0,0,0.6)" stroke-width="44" fill="none" stroke-linecap="butt" stroke-linejoin="round" />
+
+            <path id="ropePath" d="M 500 0 Q 500 200 500 300"
+                  stroke="url(#fabricGrad)" stroke-width="40" fill="none" stroke-linecap="butt" stroke-linejoin="round" filter="url(#fabricShadow)" />
+
+            <path id="ropePathTexture" d="M 500 0 Q 500 200 500 300"
+                  stroke="url(#fabricTexture)" stroke-width="40" fill="none" stroke-linecap="butt" stroke-linejoin="round" />
+
+            <g id="ropeBuckle">
+              <rect x="-16" y="-14" width="32" height="28" rx="4" fill="#0a0a0a" stroke="#dc2626" stroke-width="1.5"/>
+              <rect x="-6" y="-5" width="12" height="10" rx="2" fill="#dc2626"/>
+            </g>
+          </svg>
+
+          <div id="lanyardCard" class="lanyard-card relative z-10 w-[160px] h-[225px] sm:w-[190px] sm:h-[265px] md:w-[220px] md:h-[310px] lg:w-[280px] lg:h-[390px] xl:w-[320px] xl:h-[450px] rounded-2xl overflow-hidden shadow-2xl cursor-grab active:cursor-grabbing border-2 border-red-600/60 transition-all duration-300">
+            <div class="card-notch absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-3 lg:w-12 lg:h-4 bg-zinc-400 rounded-md z-20 shadow-sm"></div>
+            <img src="images/bday.png" alt="Profile" class="absolute inset-0 w-full h-full object-cover pointer-events-none grayscale-[15%]">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-black/40 pointer-events-none"></div>
+            <!-- SESUDAH (Hapus baris tersebut atau jadikan komentar seperti ini) -->
+<!-- <div class="absolute inset-0 card-web-overlay pointer-events-none"></div> -->
+            <div class="card-topbar absolute top-2.5 left-2.5 right-2.5 lg:top-4 lg:left-4 lg:right-4 flex justify-between items-center z-20">
+              <span class="card-brand text-[8px] sm:text-[9px] lg:text-xs font-bold tracking-widest text-red-500 font-hero uppercase">Hero Access</span>
+              <span class="card-dot w-2 h-2 lg:w-2.5 lg:h-2.5 rounded-full bg-red-600 shadow-[0_0_8px_2px_rgba(220,38,38,0.8)]"></span>
+            </div>
+            <div class="card-footer absolute bottom-2.5 left-2.5 right-2.5 lg:bottom-5 lg:left-4 lg:right-4 text-center bg-black/60 backdrop-blur-md border border-red-600/40 rounded-xl px-2 py-2 lg:py-3.5">
+              <h3 class="card-name font-hero text-base sm:text-xl lg:text-3xl tracking-wider text-white">NAMA DIA</h3>
+              <p class="card-status text-[9px] sm:text-[10px] lg:text-xs text-red-500 tracking-[0.2em] font-semibold uppercase mt-0.5 lg:mt-1">Legend Status</p>
+            </div>
+          </div>
+
+          <!-- SVG 2: HOOK -->
+          <svg class="hook-svg absolute top-[-300px] left-1/2 -translate-x-1/2 overflow-visible z-20 pointer-events-none" width="300" height="600" viewBox="350 0 300 600">
+            <g id="ropeHook">
+              <rect x="-13" y="-16" width="26" height="24" rx="4" fill="#111" stroke="#dc2626" stroke-width="1"/>
+              <circle cx="0" cy="6" r="6" fill="#9ca3af" stroke="#4b5563" stroke-width="1.5"/>
+              <path d="M -6 6 A 6 6 0 0 1 6 6 L 6 14 A 4 4 0 0 1 2 18 L -2 18"
+                    fill="none" stroke="#9ca3af" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="wish-container text-center md:text-left max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl flex flex-col items-center md:items-start gap-2.5 sm:gap-4 lg:gap-6 z-20">
+          <div>
+            <span class="mission-badge inline-block px-3 py-0.5 sm:px-3.5 sm:py-1 lg:px-4 lg:py-1.5 bg-red-600/15 text-red-500 rounded-full text-[10px] sm:text-xs lg:text-sm font-bold tracking-[0.2em] uppercase border border-red-600/40">
+              Special Mission
+            </span>
+          </div>
+
+          <h1 class="hero-title font-hero animated-hero text-[40px] sm:text-[650px] md:text-[70px] lg:text-[80px] xl:text-[95px] tracking-wide leading-[1.05] py-1 sm:py-2">
+            HAPPY<br class="hero-break"> BIRTHDAY</h1>
+          <p class="hero-desc text-zinc-300 text-[11px] sm:text-[14px] md:text-[15px] lg:text-[16.5px] leading-relaxed font-medium">
+            Another year stronger, another year bolder. Semoga di umur baru ini makin bahagia, makin sehat, dan semua misi hidupmu berhasil dituntaskan.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MENU 2: LETTER / MISSION LOG -->
+    <!-- MENU 2: LETTER / MISSION LOG -->
+<section id="step-1" class="step-content w-full h-full flex flex-col items-center justify-center absolute inset-0 p-4 sm:p-6 overflow-hidden">
+<!-- SPIDER KIRI -->
+<div class="spider-hanging spider-left">
+  <div class="spider-thread"></div>
+  <svg class="spider-svg" viewBox="0 0 100 100" width="46" height="46">
+    <!-- Pantat (Menyatu ke Benang Atas) -->
+    <ellipse cx="50" cy="32" rx="14" ry="18" fill="#ffffff" />
+    <!-- Kepala (Di bawah) -->
+    <circle cx="50" cy="54" r="10" fill="#ffffff" />
+
+    <!-- KAKI DEPAN (MENGHADAP KE ATAS / DEPAN) -->
+    <g class="spider-legs-1">
+      <!-- Pasang 1 Kiri & Kanan (Melengkung Ke Atas) -->
+      <path d="M 42 30 Q 18 10 10 22" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 30 Q 82 10 90 22" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-2">
+      <!-- Pasang 2 Kiri & Kanan (Agak Menyamping Atas) -->
+      <path d="M 40 40 Q 12 28 6 42" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 60 40 Q 88 28 94 42" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+
+    <!-- KAKI BELAKANG (MENGHADAP KE BAWAH / BELAKANG) -->
+    <g class="spider-legs-2">
+      <!-- Pasang 3 Kiri & Kanan (Menyamping Bawah) -->
+      <path d="M 42 48 Q 18 55 12 70" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 48 Q 82 55 88 70" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-1">
+      <!-- Pasang 4 Kiri & Kanan (Melengkung Ke Bawah) -->
+      <path d="M 45 56 Q 25 75 20 88" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 55 56 Q 75 75 80 88" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+  </svg>
+</div>
+
+<!-- SPIDER KANAN -->
+<div class="spider-hanging spider-right">
+  <div class="spider-thread"></div>
+  <svg class="spider-svg" viewBox="0 0 100 100" width="40" height="40">
+    <ellipse cx="50" cy="32" rx="14" ry="18" fill="#ffffff" />
+    <circle cx="50" cy="54" r="10" fill="#ffffff" />
+
+    <g class="spider-legs-1">
+      <path d="M 42 30 Q 18 10 10 22" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 30 Q 82 10 90 22" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-2">
+      <path d="M 40 40 Q 12 28 6 42" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 60 40 Q 88 28 94 42" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+
+    <g class="spider-legs-2">
+      <path d="M 42 48 Q 18 55 12 70" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 58 48 Q 82 55 88 70" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="spider-legs-1">
+      <path d="M 45 56 Q 25 75 20 88" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+      <path d="M 55 56 Q 75 75 80 88" stroke="#ffffff" stroke-width="4.5" fill="none" stroke-linecap="round" />
+    </g>
+  </svg>
+</div>
+      <div class="text-center mb-3 sm:mb-5 lg:mb-6 z-20">
+        <h2 class="letter-header-title font-hero text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-[0.15em] text-red-500 drop-shadow-lg">
+          MISSION LOG
+        </h2>
+        <p class="letter-header-sub text-[10px] sm:text-xs md:text-sm text-red-400/80 mt-0.5 font-semibold uppercase tracking-widest">
+          A message for your special day
+        </p>
+      </div>
+
+      <div class="letter-card max-w-xs sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl w-full bg-black/40 backdrop-blur-md border border-red-600/30 p-5 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl relative shadow-2xl space-y-3 sm:space-y-4">
+
+        <div class="letter-icon absolute -top-4 -left-2 sm:-top-5 sm:-left-3 bg-red-600 w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center text-lg sm:text-2xl shadow-lg border-2 border-black">
+          🕸️
+        </div>
+
+        <div class="letter-text space-y-2.5 sm:space-y-3.5 lg:space-y-4 text-zinc-200 text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed font-medium pt-1 sm:pt-2"></div>
+      </div>
+    </section>
+
+    <!-- MENU 3: GALLERY (DRIFT WALL) -->
+    <section id="step-2" class="step-content w-full h-full flex items-center justify-center absolute inset-0">
+
+      <div class="gallery-header-wrap absolute top-6 sm:top-8 lg:top-12 left-1/2 -translate-x-1/2 z-20 text-center pointer-events-none w-full px-4">
+        <h2 class="gallery-header-title font-hero text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-[0.15em] text-red-500 drop-shadow-lg">
+          THE ARCHIVES
+        </h2>
+        <p class="gallery-header-sub text-[10px] sm:text-xs md:text-sm lg:text-base text-red-400/80 mt-0.5 sm:mt-1 font-semibold uppercase tracking-widest">
+          A glimpse of our moments
+        </p>
+      </div>
+
+      <div class="drift-wall w-full h-full relative overflow-hidden" id="driftWall">
+        <div class="drift-wall__plane absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-1/2 scale-110 rotate-x-12 -rotate-y-10" id="driftPlane">
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="fixed bottom-6 left-0 right-0 z-50 flex items-center justify-center gap-2 w-full px-4 pointer-events-none">
+
+    <button id="prevBtn" onclick="changeStep(-1)" class="pointer-events-auto shrink-0 whitespace-nowrap leading-none px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-white/5 backdrop-blur-md border border-red-600/30 hover:bg-red-600/10 transition shadow-2xl flex items-center justify-center text-white disabled:opacity-30 disabled:pointer-events-none">
+      <span>←</span><span class="ml-1">Prev</span>
+    </button>
+
+    <span id="stepIndicator" class="pointer-events-auto shrink-0 whitespace-nowrap leading-none text-xs font-bold text-red-500 px-3 py-2.5 bg-black/60 backdrop-blur-md border border-red-600/30 rounded-full shadow-lg flex items-center justify-center">
+      1 / 3
+    </span>
+
+    <button id="nextBtn" onclick="changeStep(1)" class="pointer-events-auto shrink-0 whitespace-nowrap leading-none px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-red-600 hover:bg-red-700 transition shadow-2xl flex items-center justify-center text-white">
+      <span>Next</span><span class="ml-1">→</span>
+    </button>
+
+  </div>
+
+  <script src="bg-shards.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>

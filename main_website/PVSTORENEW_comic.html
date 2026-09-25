@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PUVISTOREABLE - Catalogue</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            puvBg: '#FFF4D6',       /* Warm Cream Background */
+            puvGreen: '#1F8A4C',    /* Moss/Forest Green */
+            puvGreenDark: '#166B3A',
+            puvOrange: '#E63946',   /* Peach/Orange Accent */
+            puvPink: '#FFD23F',     /* Soft Pink Accent */
+            puvCard: '#FFFFFF',
+          }
+        }
+      }
+    }
+  </script>
+
+  <meta name="theme-color" content="#FFD23F">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=DM+Sans:wght@400;500;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Retro comic scrapbook skin: styling only, content untouched */
+    :root{--ink:#1c1c2e}
+    body.font-sans{font-family:'DM Sans',system-ui,sans-serif;color:var(--ink);
+      background-image:radial-gradient(rgba(31,138,76,.2) 1.3px,transparent 1.6px);background-size:16px 16px}
+    body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.07;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E")}
+    h1,h2,h3,h4,button,.font-black,.font-extrabold{font-family:'Fredoka',sans-serif}
+    main h2{text-shadow:3px 3px 0 #FFD23F}
+    header{border-bottom:3px dashed var(--ink)!important}
+    header .rounded-full.bg-puvGreen{border:3px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
+    header button,header span.rounded-full{border:2px solid var(--ink)}
+    /* cards, modals */
+    .bg-puvCard{border:3px solid var(--ink)!important;box-shadow:5px 5px 0 var(--ink)!important}
+    .bg-puvCard.border-dashed{border-style:dashed!important}
+    .bg-puvCard.border-puvOrange{box-shadow:6px 6px 0 #E63946!important}
+    .bg-puvBg.rounded-xl{border:2px solid var(--ink);background:#E2F5E6}
+    .bg-puvPink\/20{border:2px dashed var(--ink)}
+    #welcome-modal,#regulation-modal{background:rgba(28,28,46,.6)!important;backdrop-filter:none!important}
+    #welcome-modal .bg-puvCard{transform:rotate(-1deg)}
+    /* badges */
+    span.text-\[10px\]{border:2px solid var(--ink);box-shadow:2px 2px 0 var(--ink)}
+    .bg-red-50{background:#FFD23F!important}.text-red-500{color:#b3121f!important}
+    .absolute.-top-3{transform:rotate(4deg)}
+    /* buttons */
+    :is(button,a):is(.bg-puvGreen,.bg-puvOrange,#mb-demo-btn,#btn-web,#btn-canva){
+      border:3px solid var(--ink)!important;box-shadow:3px 3px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+    :is(button,a):is(.bg-puvGreen,.bg-puvOrange,#mb-demo-btn,#btn-web,#btn-canva):hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--ink)}
+    :is(button,a):is(.bg-puvGreen,.bg-puvOrange,#mb-demo-btn,#btn-web,#btn-canva):active{transform:translate(2px,2px);box-shadow:0 0 0 var(--ink)}
+    .hover\:bg-orange-600:hover{background:#c92a36!important}
+    #btn-canva.bg-white,#btn-web.bg-white{border-color:var(--ink)!important}
+    #page-etalase .bg-puvBg button.bg-white{background:#FFD23F;border:2px solid var(--ink)}
+    /* etalase = polaroids with tape */
+    #etalase-grid>div{position:relative;overflow:visible!important;padding:10px 10px 6px;background:#fff;transform:rotate(-1.4deg);transition:transform .2s}
+    #etalase-grid>div:nth-child(even){transform:rotate(1.2deg)}
+    #etalase-grid>div:hover{transform:rotate(0) translateY(-4px)}
+    #etalase-grid>div::before{content:"";position:absolute;top:-10px;left:50%;width:64px;height:20px;margin-left:-32px;
+      background:rgba(255,210,63,.85);border:1.5px solid rgba(28,28,46,.25);transform:rotate(-3deg);z-index:2}
+    #etalase-grid>div>.h-32{border:2px solid var(--ink);border-radius:6px}
+    #mb-gallery>div{background:#fff;padding:8px;border:3px solid var(--ink)!important;box-shadow:4px 4px 0 var(--ink);transform:rotate(-1deg)}
+    #mb-gallery>div:nth-child(even){transform:rotate(1deg)}
+    #mb-gallery img{border-radius:4px}
+    
+
+    /* ===== motion ===== */
+    @keyframes fadeUp{from{opacity:0;translate:0 18px}}
+    @keyframes popIn{from{opacity:0;translate:0 16px;scale:.92}}
+    @keyframes wiggle{0%,100%{rotate:0deg}30%{rotate:4deg}60%{rotate:-3deg}}
+    @keyframes floaty{50%{translate:0 -6px}}
+    @keyframes rip{from{opacity:.9;scale:0}to{opacity:0;scale:1}}
+    @keyframes dots{to{background-position:16px 16px}}
+    body.font-sans{animation:dots 24s linear infinite}
+    #page-catalog,#page-etalase,#page-moodboard{animation:fadeUp .45s ease backwards}
+    #tab-web,#tab-canva{animation:fadeUp .4s ease backwards}
+    :is(#tab-web,#tab-canva) .grid>*,#etalase-grid>*,#mb-gallery>*{animation:popIn .5s cubic-bezier(.2,.8,.2,1) backwards}
+    :is(#tab-web,#tab-canva) .grid>:nth-child(2),#etalase-grid>:nth-child(2),#mb-gallery>:nth-child(2){animation-delay:.08s}
+    :is(#tab-web,#tab-canva) .grid>:nth-child(3),#etalase-grid>:nth-child(3){animation-delay:.16s}
+    :is(#tab-web,#tab-canva) .grid>:nth-child(4),#etalase-grid>:nth-child(4){animation-delay:.24s}
+    :is(#tab-web,#tab-canva) .grid>:nth-child(n+5),#etalase-grid>:nth-child(n+5){animation-delay:.32s}
+    :is(#tab-web,#tab-canva)>:not(.grid){animation:fadeUp .5s ease .25s backwards}
+    .absolute.-top-3{animation:wiggle 2.6s ease-in-out infinite}
+    #welcome-modal .rounded-full.w-12{animation:floaty 2.4s ease-in-out infinite}
+    #welcome-modal>div{animation:popIn .5s cubic-bezier(.2,1.3,.4,1) .1s backwards}
+    header .rounded-full.bg-puvGreen{transition:rotate .25s}
+    header .rounded-full.bg-puvGreen:hover{rotate:-10deg}
+    /* modal fade in/out (JS only toggles .hidden) */
+    #welcome-modal,#regulation-modal{transition:opacity .28s,visibility .28s}
+    #welcome-modal.hidden,#regulation-modal.hidden{display:flex!important;opacity:0;visibility:hidden;pointer-events:none}
+    #welcome-modal>div,#regulation-modal>div{transition:transform .35s cubic-bezier(.2,1.3,.4,1)}
+    #regulation-modal.hidden>div{transform:scale(.9) translateY(20px)}
+    #welcome-modal.hidden .bg-puvCard{transform:rotate(-1deg) scale(.9) translateY(20px)}
+    /* tap cards */
+    .tap-card{position:relative;-webkit-tap-highlight-color:transparent;transition:transform .15s ease,translate .2s ease,box-shadow .15s ease}
+    .tap-card:hover{translate:0 -4px}
+    .tap-card.pressed{transform:scale(.96) rotate(-.6deg);box-shadow:2px 2px 0 var(--ink)!important}
+    .ripple-wrap{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+    .ripple-wrap i{position:absolute;border-radius:50%;background:rgba(255,210,63,.6);animation:rip .6s ease-out forwards}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body class="bg-puvBg text-zinc-800 font-sans min-h-screen p-4 md:p-8">
+
+  <!-- ==========================================
+       POPUP 1: WELCOME MESSAGE (MODAL)
+  =========================================== -->
+  <div id="welcome-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300">
+    <div class="bg-puvCard rounded-3xl p-6 max-w-sm w-full text-center shadow-xl border border-zinc-200 space-y-4">
+      <div class="w-12 h-12 rounded-full bg-puvPink/30 text-puvOrange flex items-center justify-center mx-auto text-2xl font-bold">✨</div>
+      <div>
+        <span class="inline-block text-[10px] bg-puvOrange/15 text-puvOrange font-extrabold px-3 py-1 rounded-full mb-2 uppercase tracking-wide">Digital Gift Ideas 🎁</span>
+        <h3 class="text-xl font-extrabold text-puvGreen">Welcome to PUVISTOREABLE!✨</h3>
+        <p class="text-xs text-zinc-500 mt-2">Tempatnya bikin website interaktif lengkap dengan mini-games, music, sampai template Canva estetik. Make Your Special Moments Extra Memorable with Us!</p>
+      </div>
+      <button onclick="closeWelcomeModal()" class="w-full py-3 bg-puvGreen hover:bg-puvGreenDark text-puvBg font-bold text-xs rounded-xl shadow-md transition">
+        Explore Template Now 🚀💌
+      </button>
+    </div>
+  </div>
+
+  <!-- TOP NAVIGATION / HEADER -->
+  <header class="max-w-4xl mx-auto flex justify-between items-center py-4 mb-6 border-b border-zinc-300/60">
+    <div class="flex items-center gap-2 cursor-pointer" onclick="showPage('catalog')">
+      <div class="relative w-11 h-11 rounded-full bg-puvGreen flex items-center justify-center text-puvBg font-black text-xs overflow-hidden">PV<img src="logo.jpg" alt="PUVISTOREABLE" class="absolute inset-0 w-full h-full object-cover" onerror="this.remove()"></div>
+      <h1 class="text-xl font-black text-puvGreen tracking-wide">PUVISTOREABLE</h1>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="openRegulationModal()" class="text-xs bg-puvGreen/10 text-puvGreen font-bold px-3.5 py-1.5 rounded-full hover:bg-puvGreen/20 transition flex items-center gap-1">
+        📜 Regulation
+      </button>
+      <span class="text-xs bg-puvPink/40 text-puvGreenDark font-bold px-3 py-1.5 rounded-full hidden sm:inline-block">Katalog & Template</span>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto">
+
+    <!-- ==========================================
+         PAGE 1: KATALOG UTAMA & PRICELIST
+    =========================================== -->
+    <div id="page-catalog" class="space-y-8">
+      
+      <div class="text-center max-w-xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-puvGreen">Pilih Layanan Kamu</h2>
+        <p class="text-zinc-600 text-sm mt-2">Mau bikin surprise unik buat pacar atau bestie? Bikin website interaktif yang cute atau template Canva estetik kamu bisa edit sendiri di sini!</p>
+      </div>
+
+      <!-- TAB NAVIGATION -->
+      <div class="flex justify-center gap-3">
+        <button onclick="switchTab('web')" id="btn-web" class="px-6 py-2.5 rounded-full font-bold text-sm transition bg-puvGreen text-puvBg shadow-md">
+          🌐 Website Code (Fixed Edit)
+        </button>
+        <button onclick="switchTab('canva')" id="btn-canva" class="px-6 py-2.5 rounded-full font-bold text-sm transition bg-white text-zinc-600 hover:text-puvGreen border border-zinc-200">
+          🎨 Canva Template (Editable)
+        </button>
+      </div>
+
+      <!-- TAB 1: WEBSITE TERIMA JADI -->
+      <div id="tab-web" class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- LITE -->
+          <div class="bg-puvCard rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Lite</span>
+                <span class="text-[10px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">PROMO 25%</span>
+              </div>
+              <h3 class="text-xl font-bold mt-4 text-puvGreen">General Link</h3>
+              <div class="my-2">
+                <span class="text-xs text-zinc-400 line-through mr-1">Rp20.000 - Rp25.000</span>
+                <p class="text-2xl font-black text-puvOrange">15k <span class="text-xs text-zinc-500 font-normal">- 20k</span></p>
+              </div>
+              <ul class="text-xs text-zinc-600 space-y-2 mt-4">
+                <li>✓ Link Website Universal</li>
+                <li>✗ <strong>Tidak dapat diedit</strong></li>
+                <li>✓ <strong>Masa Aktif Selamanya</strong></li>
+                <li>✓ Responsif (HP, Tab, Desktop)</li>
+                <li>✓ QR Code Basic</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button onclick="openEtalase('lite')" class="w-full py-3 bg-puvGreen hover:bg-puvGreenDark text-puvBg rounded-xl font-bold text-xs transition shadow-sm">🛒 Lihat Etalase Ready</button>
+            </div>
+          </div>
+
+          <!-- SILVER -->
+          <div class="bg-puvCard rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-extrabold uppercase bg-zinc-100 text-zinc-700 px-3 py-1 rounded-full">Silver</span>
+                <span class="text-[10px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">SAVE 10K</span>
+              </div>
+              <h3 class="text-xl font-bold mt-4 text-puvGreen">Mini Section</h3>
+              <div class="my-2">
+                <span class="text-xs text-zinc-400 line-through mr-1">Rp40.000</span>
+                <p class="text-2xl font-black text-puvOrange">30k</p>
+              </div>
+              <ul class="text-xs text-zinc-600 space-y-2 mt-4">
+                <li>✓ 3 Halaman atau Section</li>
+                <li>✓ Tampilan Ringkas & Elegan</li>
+                <li>✓ Masa Aktif 3 Bulan</li>
+                <li>✓ Responsif (HP, Tab, Desktop)</li>
+                <li>✓ QR Code Basic</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button onclick="openEtalase('silver')" class="w-full py-3 bg-puvGreen hover:bg-puvGreenDark text-puvBg rounded-xl font-bold text-xs transition shadow-sm">🛒 Lihat Etalase</button>
+            </div>
+          </div>
+
+          <!-- GOLD -->
+          <div class="bg-puvCard rounded-3xl p-6 border-2 border-puvOrange shadow-md flex flex-col justify-between relative">
+            <span class="absolute -top-3 right-4 text-[10px] uppercase font-black bg-puvOrange text-white px-3 py-1 rounded-full">Best Value</span>
+            <div>
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-extrabold uppercase bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Gold</span>
+                <span class="text-[10px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">SPECIAL PRICE</span>
+              </div>
+              <h3 class="text-xl font-bold mt-4 text-puvGreen">Interactive Web</h3>
+              <div class="my-2">
+                <span class="text-xs text-zinc-400 line-through mr-1">Rp55.000 - Rp65.000</span>
+                <p class="text-2xl font-black text-puvOrange">40k <span class="text-xs text-zinc-500 font-normal">- 50k</span></p>
+              </div>
+              <ul class="text-xs text-zinc-600 space-y-2 mt-4">
+                <li>✓ Up to 8 Halaman atau Section</li>
+                <li>✓ <strong>Music, Mini Games & Password</strong></li>
+                <li>✓ Full Interactive</li>
+                <li>✓ Masa Aktif 3 Bulan</li>
+                <li>✓ Responsif (HP, Tab, Desktop)</li>
+                <li>✓ QR Code Custom</li>
+              </ul>
+            </div>
+            <div class="mt-6">
+              <button onclick="openEtalase('gold')" class="w-full py-3 bg-puvOrange hover:bg-orange-600 text-white rounded-xl font-bold text-xs transition shadow-sm">🛒 Lihat Etalase</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CUSTOM IDE SENDIRI (CHECKLIST FORMAT) -->
+        <div class="bg-puvCard rounded-2xl p-5 border border-dashed border-puvGreen shadow-sm space-y-3">
+          <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-100 pb-3">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">🎨</span>
+              <h4 class="font-extrabold text-puvGreen text-sm md:text-base">CUSTOM IDE SENDIRI</h4>
+            </div>
+            <div class="text-right">
+              <span class="text-xs text-zinc-400 line-through mr-1">Rp80.000</span>
+              <span class="font-black text-puvOrange text-lg">Rp65.000</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-zinc-600 pt-1">
+            <div class="flex items-start gap-2">
+              <span class="text-puvGreen font-bold">✓</span>
+              <span>Bebas request ide & layout imajinasi kamu</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-puvGreen font-bold">✓</span>
+              <span>Responsif dibuka di HP, tablet, maupun desktop</span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-puvGreen font-bold">✓</span>
+              <span><strong>Maksimal 8 section atau halaman</strong></span>
+            </div>
+            <div class="flex items-start gap-2">
+              <span class="text-puvGreen font-bold">✓</span>
+              <span><strong>Order Maksimal:</strong> Wajib dipesan sebulan atau paling lambat <strong>H-15</strong> sebelum hari H</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADD-ON WEBSITE CODE -->
+        <div class="bg-puvCard rounded-2xl p-5 border border-zinc-200/80">
+          <h4 class="font-bold text-puvGreen text-xs uppercase tracking-wider mb-3">➕ Add-On Khusus Website Code</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">📱 QR Custom Unik</p>
+                <p class="text-zinc-500 text-[11px]">Desain QR custom khusus</p>
+              </div>
+              <span class="font-bold text-puvOrange">+Rp5.000</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">🎵 Tambah Musik Button</p>
+                <p class="text-zinc-500 text-[11px]">Tombol audio/musik custom</p>
+              </div>
+              <span class="font-bold text-puvOrange">+Rp5.000</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">➕ Tambah Section</p>
+                <p class="text-zinc-500 text-[11px]">Halaman ekstra</p>
+              </div>
+              <span class="font-bold text-puvOrange">+Rp10.000/section</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">🎨 Custom Ganti Warna</p>
+                <p class="text-zinc-500 text-[11px]">Ubah warna template</p>
+              </div>
+              <span class="font-bold text-puvOrange">+Rp5.000</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">⚡ Upgrade Lifetime</p>
+                <p class="text-zinc-500 text-[11px]">Source Code + diajarin deploy</p>
+              </div>
+              <span class="font-bold text-puvOrange">+Rp100.000</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">🚀 On Rush / Express</p>
+                <p class="text-zinc-500 text-[11px]">Pengerjaan kilat (4-8 jam)</p>
+              </div>
+              <span class="font-bold text-puvOrange">+Rp5.000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: TEMPLATE CANVA -->
+      <div id="tab-canva" class="space-y-6 hidden">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-puvCard rounded-3xl p-6 border border-dashed border-puvGreen shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Canva Custom</span>
+                <span class="text-[10px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">REQUEST</span>
+              </div>
+              <h3 class="text-xl font-bold mt-4 text-puvGreen">Contoh Custom</h3>
+              <p class="text-xs text-zinc-500 mt-2">Punya ide desain Canva sendiri? Bisa request custom sesuai keinginan kamu, tinggal chat detailnya langsung.</p>
+            </div>
+            <a href="https://wa.me/6281234567890?text=Halo%20Kak,%20aku%20mau%20request%20custom%20template%20Canva" target="_blank" class="mt-6 w-full py-3 bg-puvGreen hover:bg-puvGreenDark text-puvBg rounded-xl font-bold text-xs transition shadow-sm text-center block">💬 Chat Request Custom</a>
+          </div>
+
+          <div class="bg-puvCard rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-center">
+                <span class="text-[10px] font-extrabold uppercase bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Gold Template</span>
+                <span class="text-[10px] font-bold text-red-500 bg-red-50 px-2 py-0.5 rounded">BEST DEAL</span>
+              </div>
+              <h3 class="text-xl font-bold mt-4 text-puvGreen">Full Pack</h3>
+              <div class="my-2">
+                <span class="text-xs text-zinc-400 line-through mr-1">Rp40.000</span>
+                <p class="text-2xl font-black text-puvOrange">25k <span class="text-xs text-zinc-500 font-normal">- 30k</span></p>
+              </div>
+              <p class="text-xs text-zinc-500 mt-2">Akses link Template Canva hingga 8 halaman & berlaku selamanya.</p>
+            </div>
+            <div class="mt-6">
+              <button onclick="openEtalase('canva-gold')" class="w-full py-3 bg-puvGreen hover:bg-puvGreenDark text-puvBg rounded-xl font-bold text-xs transition shadow-sm">🛒 Lihat Etalase</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADD-ON CANVA -->
+        <div class="bg-puvCard rounded-2xl p-5 border border-zinc-200/80">
+          <h4 class="font-bold text-puvGreen text-xs uppercase tracking-wider mb-3">➕ Add-On Khusus Template Canva</h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">🛠️ Jasa Bantuan Edit</p>
+                <p class="text-zinc-500 text-[11px]">Terima beres dari mimin</p>
+              </div>
+              <span class="font-bold text-puvOrange">+10k</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center">
+              <div>
+                <p class="font-bold text-puvGreen">📱 Custom QR Code Unik</p>
+                <p class="text-zinc-500 text-[11px]">Tampilan custom unik</p>
+              </div>
+              <span class="font-bold text-puvOrange">+3k</span>
+            </div>
+            <div class="p-3 bg-puvBg rounded-xl flex justify-between items-center md:col-span-2">
+              <div>
+                <p class="font-bold text-puvGreen">🚀 On Rush / Express</p>
+                <p class="text-zinc-500 text-[11px]">Pengerjaan kilat (4-8 jam)</p>
+              </div>
+              <span class="font-bold text-puvOrange">+5k</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ==========================================
+         PAGE 2: ETALASE PRODUK (GRID KOTAK)
+    =========================================== -->
+    <div id="page-etalase" class="space-y-6 hidden">
+      <button onclick="showPage('catalog')" class="text-xs font-bold text-puvGreen flex items-center gap-1 hover:underline">
+        ← Kembali ke Katalog
+      </button>
+
+      <div class="flex justify-between items-end flex-wrap gap-2">
+        <div>
+          <h2 id="etalase-title" class="text-2xl font-extrabold text-puvGreen">Etalase Template</h2>
+          <p class="text-zinc-500 text-xs mt-1">Pilih salah satu produk di bawah untuk melihat moodboard & detailnya.</p>
+        </div>
+        <div class="flex gap-1 bg-puvBg p-1 rounded-xl text-[11px] font-bold text-zinc-600">
+          <button onclick="filterEtalase('all', event)" class="px-2.5 py-1 rounded-lg bg-white shadow-sm">Semua</button>
+          <button onclick="filterEtalase('web', event)" class="px-2.5 py-1 rounded-lg hover:text-puvGreen">Web</button>
+          <button onclick="filterEtalase('canva', event)" class="px-2.5 py-1 rounded-lg hover:text-puvGreen">Canva</button>
+        </div>
+      </div>
+
+      <div id="etalase-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 3: MOODBOARD & DETAIL TEMPLATE
+    =========================================== -->
+    <div id="page-moodboard" class="space-y-6 hidden">
+      <button onclick="showPage('etalase')" class="text-xs font-bold text-puvGreen flex items-center gap-1 hover:underline">
+        ← Kembali ke Etalase
+      </button>
+
+      <div class="bg-puvCard rounded-3xl p-6 border border-zinc-200/80 shadow-sm space-y-6">
+        <div class="flex justify-between items-start flex-wrap gap-2">
+          <div>
+            <h2 id="mb-title" class="text-2xl font-extrabold text-puvGreen">Title Template</h2>
+            <p id="mb-category" class="text-xs text-zinc-500">Category</p>
+          </div>
+          <div class="text-right">
+            <span id="mb-original-price" class="block text-xs text-zinc-400 line-through">Rp0</span>
+            <span id="mb-price" class="text-2xl font-black text-puvOrange">Rp0</span>
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <p class="text-xs font-bold text-puvGreen">🎨 Preview Moodboard & Tampilan:</p>
+          <div id="mb-gallery" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+        </div>
+
+        <div class="border-t border-zinc-200/80 pt-4 space-y-2 text-xs text-zinc-600">
+          <p class="font-bold text-puvGreen">📌 Deskripsi & Fitur:</p>
+          <p id="mb-desc">Deskripsi produk akan muncul di sini.</p>
+        </div>
+
+        <a id="mb-demo-btn" href="#" target="_blank" class="hidden block w-full py-3 bg-white border-2 border-puvGreen text-puvGreen text-center font-bold text-sm rounded-xl transition hover:bg-puvGreen/5">
+          🔗 Lihat Demo Live
+        </a>
+
+        <a id="mb-order-btn" href="#" target="_blank" class="block w-full py-3 bg-puvOrange hover:bg-orange-600 text-white text-center font-bold text-sm rounded-xl transition shadow-md">
+          Pesan Template Ini Sekarang via WhatsApp 💌
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================
+       POPUP 2: REGULATION MODAL (LENGKAP)
+  =========================================== -->
+  <div id="regulation-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-puvCard rounded-3xl p-6 max-w-lg w-full shadow-xl border border-zinc-200 space-y-4 max-h-[85vh] overflow-y-auto">
+      <div class="flex justify-between items-center border-b pb-3">
+        <div>
+          <h3 class="text-lg font-black text-puvGreen">✦ STORE REGULATIONS ✦</h3>
+          <p class="text-[11px] text-zinc-500">Operating Hours: 08.00 AM — 12.00 AM</p>
+        </div>
+        <button onclick="closeRegulationModal()" class="text-zinc-400 hover:text-zinc-600 font-bold text-lg">✕</button>
+      </div>
+      
+      <!-- AREA REGULASI -->
+      <div class="text-xs text-zinc-600 space-y-3.5 leading-relaxed">
+        <p class="bg-puvPink/20 text-puvGreenDark p-2.5 rounded-xl font-medium text-[11px]">
+          ✨ <em>Dengan melakukan payment, berarti kamu menyetujui seluruh ketentuan yang berlaku di PUVISTOREABLE.</em>
+        </p>
+
+        <div class="space-y-2.5">
+          <div>
+            <p class="font-bold text-puvGreen">💳 1. Payment & Refund Policy</p>
+            <p class="text-zinc-500 text-[11px] mt-0.5">Order hanya diproses setelah pembayaran dikonfirmasi via QRIS (Bank/E-wallet, No Rate). <strong>Payment = Fixed Order</strong>, tidak bisa cancel atau refund dalam bentuk apapun.</p>
+          </div>
+
+          <div>
+            <p class="font-bold text-puvGreen">⏱️ 2. Reguler Order & Revisi</p>
+            <p class="text-zinc-500 text-[11px] mt-0.5">Pengerjaan ±3 hari kerja setelah payment & form data lengkap. Termasuk <strong>Free Revision maksimal 2x</strong> (revisi minor seperti perbaikan typo, ganti teks, atau penyesuaian posisi foto).</p>
+          </div>
+
+          <div>
+            <p class="font-bold text-puvGreen">🚀 3. Rush Order (+Rp5.000)</p>
+            <p class="text-zinc-500 text-[11px] mt-0.5">Lagi butuh cepat? Order akan diprioritaskan dan ready sekitar 4–8 jam setelah payment dikonfirmasi.</p>
+          </div>
+
+          <div>
+            <p class="font-bold text-puvGreen">🎨 4. Custom Design Request</p>
+            <p class="text-zinc-500 text-[11px] mt-0.5">Untuk ide custom dari buyer, order wajib masuk maksimal H-15 sebelum tanggal pemakaian. Pastikan brief & request kamu sudah jelas dari awal.</p>
+          </div>
+
+          <div>
+            <p class="font-bold text-puvGreen">🔒 5. Copyright, Personal Use & Usage Policy</p>
+            <p class="text-zinc-500 text-[11px] mt-0.5 leading-normal">
+              • <strong>Personal Use Only:</strong> Seluruh produk/template HANYA untuk penggunaan pribadi. Dilarang keras memperjualbelikan kembali, mendistribusikan, maupun melipatgandakan template dalam bentuk apapun.<br>
+              • Dilarang menjadikan katalog Puvistoreable sebagai custom request di store lain (Sanksi penalty <strong>Rp100.000</strong>).<br>
+              • Kami tidak menerima request custom dari katalog store lain / desain tanpa credit (CR) yang jelas.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-[10px] text-zinc-400 border-t pt-2 text-center">
+          ORDER = AGREE WITH ALL REGULATIONS
+        </div>
+      </div>
+
+      <button onclick="closeRegulationModal()" class="w-full py-2.5 bg-puvGreen text-puvBg font-bold text-xs rounded-xl hover:bg-puvGreenDark transition shadow-sm">
+        Saya Mengerti & Setuju
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // DATA ETALASE & MOODBOARD
+    const productsData = {
+      'lite': [
+        { id: 'bujuk-pacar', name: 'Bujuk Pacar', price: 'Rp10.000', originalPrice: 'Rp20.000 - Rp25.000', category: 'Lite Universal', desc: 'Cocok buat yang mau minta maaf atau bikin momen manis sama pasangan.', images: ['https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600', 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600'], demo: 'https://puvistoreable/78' },
+        { id: 'mini-arcade', name: 'Mini Arcade Confession', price: 'Rp10.000', originalPrice: 'Rp20.000 - Rp25.000', category: 'Lite Universal', desc: 'Tema retro mini arcade interaktif untuk nembak gebetan!', images: ['https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600'], demo: 'https://t.me/puvistoreable/75' },
+        { id: 'just-friend', name: 'Just Friend Mini Quiz', price: 'Rp20.000', originalPrice: 'Rp20.000 - Rp25.000', category: 'Lite Universal', desc: 'Kuis seru interaktif khusus buat persahabatan.', images: ['https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600'], demo: '' }
+      ],
+      'silver': [
+        { id: 'mini-spidey', name: 'Mini Spidey', price: 'Rp30.000', originalPrice: 'Rp40.000', category: 'Silver (3 Section)', desc: 'Tema Spider-Man nuansa merah-hitam 3 section ringkas.', images: ['https://images.unsplash.com/photo-1635863138275-d9b33299680b?w=600', 'https://images.unsplash.com/photo-1604200213928-ba3cf4fc8436?w=600'], demo: 'https://t.me/puvistoreable/82' },
+        { id: 'mini-floral-anniversary', name: 'Mini Floral Anniversary', price: 'Rp30.000', originalPrice: 'Rp40.000', category: 'Silver (3 Section)', desc: 'Nuansa floral lembut, cocok buat rayain anniversary.', images: ['https://images.unsplash.com/photo-1518895312237-a9e23508077d?w=600'], demo: 'https://t.me/puvistoreable/66' },
+        { id: 'mini-pinky-lanyard', name: 'Mini Pinky Lanyard', price: 'Rp30.000', originalPrice: 'Rp40.000', category: 'Silver (3 Section)', desc: 'Desain lanyard tema pink manis dan playful.', images: ['https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?w=600'], demo: 'https://t.me/puvistoreable/70' },
+        { id: 'mini-gwen-pink-white', name: 'Mini Spidergwen (Pink-White)', price: 'Rp30.000', originalPrice: 'Rp40.000', category: 'Silver (3 Section)', desc: 'Varian Spider-Gwen nuansa pink-putih yang manis.', images: ['https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600'], demo: 'https://t.me/puvistoreable/85' },
+        { id: 'mini-gwen-black-pink', name: 'Mini Spidergwen (Black-Pink)', price: 'Rp30.000', originalPrice: 'Rp40.000', category: 'Silver (3 Section)', desc: 'Varian Spider-Gwen nuansa hitam-pink yang bold.', images: ['https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600'], demo: 'https://t.me/puvistoreable/87' }
+      ],
+      'gold': [
+        { id: 'green-floral', name: 'Green Floral', price: 'Rp40.000', originalPrice: 'Rp55.000 - Rp65.000', category: 'Gold Interactive', desc: 'Nuansa estetis dedaunan hijau, mini games, dan password gate.', images: ['https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=600'], demo: 'https://green-floral-pvstore.netlify.app' },
+        { id: 'moonlit-blue', name: 'Blue Moonlit', price: 'Rp50.000', originalPrice: 'Rp55.000 - Rp65.000', category: 'Gold Interactive', desc: 'Gaya pixel art malam hari warna biru estetik.', images: ['https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600'], demo: 'https://blue-moonlit-pvstore.netlify.app' },
+        { id: 'berry-pinkies', name: 'Berry Pinkies', price: 'Rp50.000', originalPrice: 'Rp55.000 - Rp65.000', category: 'Gold Interactive', desc: 'Nuansa berry-pink manis dengan fitur interaktif penuh.', images: ['https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=600'], demo: 'https://berry-pinkies-pvstore.netlify.app' },
+        { id: 'lany-album', name: 'Lany Album', price: 'Rp60.000', originalPrice: 'Rp55.000 - Rp65.000', category: 'Gold Interactive', desc: 'Tema album musik estetik terinspirasi Lany, full interaktif.', images: ['https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600'], demo: 'https://lany-album-pvstore.netlify.app' }
+      ],
+      'canva-gold': [
+        { id: 'red-scrap', name: 'Red-scrap', price: 'Rp25.000', originalPrice: 'Rp40.000', category: 'Canva Gold Template', desc: 'Template scrapbook warna merah estetik siap edit di Canva.', images: ['https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600'], demo: 'https://puvistoreable.my.canva.site/red-scrap' },
+        { id: 'evergreen-lane', name: 'Evergreen Land', price: 'Rp25.000', originalPrice: 'Rp40.000', category: 'Canva Gold Template', desc: 'Nuansa hijau vintage yang hangat dan natural.', images: ['https://images.unsplash.com/photo-1448375240586-882707db888b?w=600'], demo: 'https://puvistoreable.my.canva.site/evergreen-lane' },
+        { id: 'racing', name: 'Racing Journey', price: 'Rp25.000', originalPrice: 'Rp40.000', category: 'Canva Gold Template', desc: 'Desain sporty dan dinamis tema balap.', images: ['https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600'], demo: 'https://puvistoreable.my.canva.site/racing-gift' },
+        { id: 'lily-wood', name: 'Lily Wood', price: 'Rp25.000', originalPrice: 'Rp40.000', category: 'Canva Gold Template', desc: 'Nuansa kayu dan bunga lily yang lembut dan estetik.', images: ['https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600'], demo: 'https://puvistoreable.my.canva.site/lily-wood' }
+      ]
+    };
+
+    let currentCategoryKey = '';
+
+    // MODAL FUNCTIONS
+    function closeWelcomeModal() {
+      document.getElementById('welcome-modal').classList.add('hidden');
+    }
+
+    function openRegulationModal() {
+      document.getElementById('regulation-modal').classList.remove('hidden');
+    }
+
+    function closeRegulationModal() {
+      document.getElementById('regulation-modal').classList.add('hidden');
+    }
+
+    // SWAP HALAMAN
+    function showPage(pageId) {
+      document.getElementById('page-catalog').classList.add('hidden');
+      document.getElementById('page-etalase').classList.add('hidden');
+      document.getElementById('page-moodboard').classList.add('hidden');
+
+      document.getElementById(`page-${pageId}`).classList.remove('hidden');
+      window.scrollTo(0,0);
+    }
+
+    // SWITCH TAB KATALOG
+    function switchTab(type) {
+      const webTab = document.getElementById('tab-web');
+      const canvaTab = document.getElementById('tab-canva');
+      const btnWeb = document.getElementById('btn-web');
+      const btnCanva = document.getElementById('btn-canva');
+
+      if(type === 'web') {
+        webTab.classList.remove('hidden');
+        canvaTab.classList.add('hidden');
+        btnWeb.className = "px-6 py-2.5 rounded-full font-bold text-sm transition bg-puvGreen text-puvBg shadow-md";
+        btnCanva.className = "px-6 py-2.5 rounded-full font-bold text-sm transition bg-white text-zinc-600 hover:text-puvGreen border border-zinc-200";
+      } else {
+        canvaTab.classList.remove('hidden');
+        webTab.classList.add('hidden');
+        btnCanva.className = "px-6 py-2.5 rounded-full font-bold text-sm transition bg-puvGreen text-puvBg shadow-md";
+        btnWeb.className = "px-6 py-2.5 rounded-full font-bold text-sm transition bg-white text-zinc-600 hover:text-puvGreen border border-zinc-200";
+      }
+    }
+
+    // BUKA ETALASE
+    function openEtalase(categoryKey) {
+      currentCategoryKey = categoryKey;
+      const gridContainer = document.getElementById('etalase-grid');
+      const items = productsData[categoryKey] || [];
+      
+      document.getElementById('etalase-title').innerText = `Etalase Paket ${categoryKey.toUpperCase()}`;
+      gridContainer.innerHTML = '';
+      document.querySelectorAll('#page-etalase .flex.gap-1.bg-puvBg button').forEach(btn => {
+        btn.className = "px-2.5 py-1 rounded-lg hover:text-puvGreen";
+      });
+      document.querySelector('#page-etalase .flex.gap-1.bg-puvBg button').className = "px-2.5 py-1 rounded-lg bg-white shadow-sm";
+
+      items.forEach(item => {
+        const typeAttr = categoryKey === 'canva-gold' ? 'canva' : 'web';
+        const cardHtml = `
+          <div data-type="${typeAttr}" onclick="openMoodboard('${item.id}')" class="bg-puvCard rounded-2xl overflow-hidden border border-zinc-200/80 shadow-sm hover:shadow-md cursor-pointer transition group">
+            <div class="h-32 md:h-40 bg-zinc-200 overflow-hidden relative">
+              <img src="${item.images[0]}" alt="${item.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+              <span class="absolute bottom-2 right-2 bg-puvGreen text-puvBg font-bold text-[10px] px-2 py-0.5 rounded-full">${item.price}</span>
+            </div>
+            <div class="p-3">
+              <h4 class="font-bold text-xs md:text-sm text-puvGreen truncate">${item.name}</h4>
+              <p class="text-[10px] text-zinc-400 mt-0.5">Klik untuk lihat moodboard →</p>
+            </div>
+          </div>
+        `;
+        gridContainer.innerHTML += cardHtml;
+      });
+
+      showPage('etalase');
+    }
+
+    // FILTER ETALASE (Semua / Web / Canva)
+    function filterEtalase(type, event) {
+      document.querySelectorAll('#etalase-grid > div').forEach(card => {
+        if (type === 'all' || card.dataset.type === type) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      document.querySelectorAll('#page-etalase .flex.gap-1.bg-puvBg button').forEach(btn => {
+        btn.className = "px-2.5 py-1 rounded-lg hover:text-puvGreen";
+      });
+      if (event && event.target) {
+        event.target.className = "px-2.5 py-1 rounded-lg bg-white shadow-sm";
+      }
+    }
+
+    // BUKA MOODBOARD
+    function openMoodboard(productId) {
+      const items = productsData[currentCategoryKey] || [];
+      const product = items.find(p => p.id === productId);
+
+      if(!product) return;
+
+      document.getElementById('mb-title').innerText = product.name;
+      document.getElementById('mb-category').innerText = product.category;
+      document.getElementById('mb-price').innerText = product.price;
+      document.getElementById('mb-original-price').innerText = product.originalPrice || '';
+      document.getElementById('mb-desc').innerText = product.desc;
+
+      const gallery = document.getElementById('mb-gallery');
+      gallery.innerHTML = '';
+      product.images.forEach(imgUrl => {
+        gallery.innerHTML += `
+          <div class="rounded-2xl overflow-hidden border border-zinc-200 h-48 bg-zinc-100">
+            <img src="${imgUrl}" class="w-full h-full object-cover">
+          </div>
+        `;
+      });
+
+      document.getElementById('mb-order-btn').href = `https://wa.me/6281234567890?text=Halo%20Kak,%20aku%20mau%20order%20template%20${encodeURIComponent(product.name)}`;
+
+      const demoBtn = document.getElementById('mb-demo-btn');
+      if (product.demo && product.demo.trim() !== '') {
+        demoBtn.href = product.demo;
+        demoBtn.classList.remove('hidden');
+      } else {
+        demoBtn.classList.add('hidden');
+      }
+
+      showPage('moodboard');
+    }
+  </script>
+
+
+  <script>
+    /* tap animation: press-squish, bounce on release, yellow ripple */
+    document.querySelectorAll('#tab-web .grid>.bg-puvCard,#tab-canva .grid>.bg-puvCard,#tab-web>.border-dashed,#page-catalog .grid>.bg-puvBg.rounded-xl').forEach(function (el) {
+      el.classList.add('tap-card');
+      var wrap = document.createElement('span');
+      wrap.className = 'ripple-wrap';
+      wrap.setAttribute('aria-hidden', 'true');
+      el.appendChild(wrap);
+      el.addEventListener('pointerdown', function (e) {
+        var r = el.getBoundingClientRect(), d = Math.max(r.width, r.height) * 1.6, i = document.createElement('i');
+        i.style.cssText = 'width:' + d + 'px;height:' + d + 'px;left:' + (e.clientX - r.left - d / 2) + 'px;top:' + (e.clientY - r.top - d / 2) + 'px';
+        wrap.appendChild(i);
+        i.addEventListener('animationend', function () { i.remove(); });
+        el.classList.add('pressed');
+      });
+      ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (t) {
+        el.addEventListener(t, function () {
+          if (!el.classList.contains('pressed')) return;
+          el.classList.remove('pressed');
+          if (t === 'pointerup' && el.animate) el.animate([{ transform: 'scale(.96)' }, { transform: 'scale(1.03)' }, { transform: 'scale(1)' }], { duration: 380, easing: 'ease-out' });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

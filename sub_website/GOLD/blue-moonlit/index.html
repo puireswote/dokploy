@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#0b132b">
+<title>It's Your Day ♡</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- INVITATION -->
+    <div class="invitation-screen" id="invitationScreen">
+        <div class="stars"></div>
+        <div class="invitation-content">
+            <div class="eyebrow">A LITTLE INVITATION</div>
+            <div class="invitation-photo">
+                <img src="him.png" alt="Him">
+            </div>
+            <h1>ARE YOU READY?</h1>
+            <p>Your fantastic birthday adventure awaits... 🎂</p>
+            <div class="invitation-buttons">
+                <button class="btn" id="yesInvite">YES</button>
+                <button class="no-btn" id="noInvite">NO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PASSWORD / LOGIN SCREEN -->
+    <div class="password-screen" id="passwordScreen">
+        <div class="pixel-stars" id="passwordStars"></div>
+        <button class="music" id="musicBtn" aria-label="Music">♪</button>
+        <div class="password-card">
+            <div class="pixel-heart">♥</div>
+            <div class="eyebrow">A SECRET LEVEL FOR YOU</div>
+            <h2>INSERT PASSWORD</h2>
+            <p class="password-text">Enter the special date to unlock it.</p>
+            <div class="date-hint">DAY &nbsp; / &nbsp; MONTH</div>
+            <div class="pin-inputs" id="pinInputs">
+                <input type="password" inputmode="numeric" maxlength="1" aria-label="digit 1" autocomplete="off">
+                <input type="password" inputmode="numeric" maxlength="1" aria-label="digit 2" autocomplete="off">
+                <span class="pin-divider">/</span>
+                <input type="password" inputmode="numeric" maxlength="1" aria-label="digit 3" autocomplete="off">
+                <input type="password" inputmode="numeric" maxlength="1" aria-label="digit 4" autocomplete="off">
+            </div>
+            <div class="password-error" id="passwordError">SALAH IH... COBA LAGI YANG BENER!!</div>
+            <p class="password-note">HINT: your special day</p>
+        </div>
+    </div>
+
+    <!-- BACKGROUND STARS -->
+    <div class="stars"></div>
+
+    <main>
+        <!-- GIFT OPENING -->
+        <div class="gift-screen" id="giftOpening">
+            <div class="gift-container" onclick="openGift()">
+                <div class="gift-box">
+                    <div class="gift-glow-inside"></div>
+                    <div class="gift-base"></div>
+                    <div class="gift-lid"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="bow"></div>
+                </div>
+                <div class="eyebrow">THERE IS A TINY SURPRISE<br> WAITING INSIDE.</div>
+                <p class="tap-text">&gt;&gt; TAP TO OPEN &lt;&lt;</p>
+            </div>
+        </div>
+
+        <!-- HERO -->
+        <section id="hero" class="active-section">
+            <div class="wrap fade">
+                <div class="pixel-calendar">
+                    <div class="calendar-title">SUNDAY,</div>
+                    <div class="date-row">
+                        <div class="date-card">
+                            <span class="date-number">23</span>
+                            <span class="date-label">DAY</span>
+                        </div>
+                        <div class="date-card">
+                            <span class="date-number">AUG</span>
+                            <span class="date-label">MONTH</span>
+                        </div>
+                        <div class="date-card">
+                            <span class="date-number">2026</span>
+                            <span class="date-label">YEAR</span>
+                        </div>
+                    </div>
+                </div>
+                <h1>HAPPY<br>BIRTHDAY,<br><span>LOVE.</span></h1>
+                <p>Before you scroll any further...<br>I made you a little something.</p>
+                <div class="pixel-heart hero-heart">♥</div>
+                <button class="btn" onclick="go('minigame')">[ START QUEST ♥ ]</button>
+            </div>
+        </section>
+
+        <!-- MINI GAME -->
+        <section id="minigame" class="game-section">
+            <div class="wrap">
+                <div class="eyebrow">BONUS LEVEL</div>
+                <h2>HEART DELIVERY</h2>
+                <p class="game-instruction">
+                Help 🦊's heart find its way to<br>🐰 to unlock the next level.
+            </p>
+                <div class="game-frame">
+                    <div class="game-status" id="gameStatus">LEVEL 01 &nbsp;♥&nbsp; FIND YOUR SOULMATE</div>
+                    <div class="game-board" id="gameBoard">
+                        <div class="player" id="player">🦊</div>
+                        <div class="heart-box" id="heartBox">❤️</div>
+                        <div class="rock rock-1"></div>
+                        <div class="rock rock-2"></div>
+                        <div class="rock rock-3"></div>
+                        <div class="rock rock-4"></div>
+                        <div class="rock rock-5"></div>
+                        <div class="rock rock-6"></div>
+                        <div class="rock rock-7"></div>
+                        <div class="game-goal" id="gameGoal">🐰</div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="game-btn move-btn" data-move="up">▲</button>
+                        <div class="game-controls-row">
+                            <button class="game-btn move-btn" data-move="left">◀</button>
+                            <button class="game-btn move-btn" data-move="down">▼</button>
+                            <button class="game-btn move-btn" data-move="right">▶</button>
+                        </div>
+                    </div>
+                    <p>  </p>
+                    <button class="btn game-reset" id="resetGame">[ RESET LEVEL ]</button>
+                    <button class="btn game-next" id="gameNext">[ CONTINUE → ]</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- LETTER -->
+        <section id="letter">
+            <div class="stars"></div>
+            <div class="wrap">
+                <div class="eyebrow">MESSAGE.EXE</div>
+                <h2>FOR MY SWEETEST OBSESSION.</h2>
+                <div class="card letter fade">
+                    <p>Happy Birthday, My Love ♥</p>
+                    <p>I hope this new chapter brings you endless happiness, good health, and countless opportunities to become the person you've always dreamed of.</p>
+                    <p>Semoga di umur yang baru ini, semua doa dan harapanmu satu per satu terwujud. Jangan terlalu keras sama diri sendiri ya, because you're already doing your best. Aku akan selalu percaya sama kamu, support every step you take, and remind you that you never have to face everything alone.</p>
+                    <p>I may not be able to give you the whole world, but I promise to always give you my sincerest heart. Thank you for being my favorite person, my comfort, and my home.</p>
+                    <p>Senyumanmu itu sederhana, tapi selalu berhasil bikin orang di sekitarmu merasa lebih tenang—termasuk aku. Aku bangga sama kamu, bukan cuma karena apa yang kamu capai, tapi karena kamu tetap memilih jadi orang yang baik, hangat, dan tulus, bahkan saat hidup nggak selalu mudah. I'm so lucky and so happy to have you in my life.</p>
+                    <div class="ily">I LOVE YOU SO MUCH SAYANG</div>
+                    <div class="signature">YOURS, -NAMAMU- ♥</div>
+                </div>
+                <button class="btn" onclick="go('memories')">[ NEXT LEVEL → ]</button>
+            </div>
+        </section>
+
+        <!-- MEMORIES -->
+        <section id="memories">
+            <div class="wrap">
+                <div class="eyebrow">MEMORY SELECT</div>
+                <h2>OUR TINY MEMORIES</h2>
+                <p class="small">Every picture here holds a little piece of us📸</p>
+                <div class="polaroids">
+                    <div class="photo"><img src="images/photo1.jpg" alt="photo1"><span>♡ OUR LITTLE PARTY</span></div>
+                    <div class="photo"><img src="images/photo2.jpg" alt="photo2"><span>♥ QUALITY TIME</span></div>
+                    <div class="photo"><img src="images/photo3.jpg" alt="photo3"><span>★ WARM HUG</span></div>
+                    <div class="photo"><img src="images/photo4.jpg" alt="photo4"><span>♥ JUST US</span></div>
+                </div>
+                <button class="btn" onclick="go('wishes')">[ ONE MORE THING → ]</button>
+            </div>
+        </section>
+
+        <!-- WISHES -->
+        <section id="wishes">
+            <div class="stars"></div>
+            <div class="wrap">
+                <div class="eyebrow">QUEST COMPLETE?</div>
+                <h2>FOR THIS NEW CHAPTER</h2>
+                <div class="card">
+                    <div class="promise">
+                        <div class="icon">♥</div>
+                        <div>
+                            <b>KEEP SMILE</b>
+                            <div>I hope you never lose the smile that brightens everyone's day, because your happiness means so much to me.</div>
+                        </div>
+                    </div>
+                    <div class="promise">
+                        <div class="icon">★</div>
+                        <div>
+                            <b>HEALTH</b>
+                            <div>I hope you're always surrounded by good health, peace, and people who genuinely love you. JANGAN KEBANYAKAN MINUM KOPI!</div>
+                        </div>
+                    </div>
+                    <div class="promise">
+                        <div class="icon">♥</div>
+                        <div>
+                            <b>HAPPINESS AND SUCCESS</b>
+                            <div>I hope every dream you carry slowly turns into reality, one beautiful step at a time.</div>
+                        </div>
+                    </div>
+                    <div class="promise">
+                        <div class="icon">+</div>
+                        <div>
+                            <b>AND WHEREVER LIFE TAKES YOU...</b>
+                            <div>I hope I can keep making memories with you, celebrating your birthdays, and loving you for a very, very long time.</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn" onclick="go('ending'); confetti()">[ FINAL SURPRISE ♥ ]</button>
+            </div>
+        </section>
+
+        <!-- ENDING -->
+        <section id="ending">
+            <div class="wrap">
+                <div class="game-over">♥ GAME OVER ♥</div>
+                <div class="pink-marquee">
+                    <div class="track">
+                        <span>♥ ONCE AGAIN, HAPPY BIRTHDAY SAYANG ♥</span>
+                        <span>♥ ONCE AGAIN, HAPPY BIRTHDAY SAYANG ♥</span>
+                        <span>♥ ONCE AGAIN, HAPPY BIRTHDAY SAYANG ♥</span>
+                    </div>
+                </div>
+                <div class="pixel-cake">
+                    <div class="pixel-flame">♥</div>
+                    <div class="pixel-candle"><span></span></div>
+                    <div class="pixel-cream"></div>
+                    <div class="pixel-cake-body">
+                        <div class="cake-highlight"></div>
+                        <div class="cake-shadow"></div>
+                    </div>
+                    <div class="pixel-plate"></div>
+                </div>
+                <h2>I LOVE YOU.</h2>
+                <p>More than my words can probably explain.</p>
+                <p class="small">Now make a wish.<br>I'll be rooting for you.</p>
+                <div class="footer">♥ MADE WITH TOO MUCH LOVE ♥</div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL POPUP LIGHTBOX FOTO -->
+<div class="photo-modal" id="photoModal">
+    <div class="photo-modal-content">
+        <img id="modalImg" src="" alt="Zoomed Photo">
+        <caption id="modalCaption"></caption>
+    </div>
+</div>
+
+    <!-- GSAP & OBSERVER FOR SMOOTH LOCK SCROLL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

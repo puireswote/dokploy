@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday🍓✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div class="floating-bg">
+    <svg class="shape red" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="shape yellow" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2z"/></svg>
+    <svg class="shape pink" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="currentColor"/></svg>
+    <svg class="shape cream" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="shape red" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2z"/></svg>
+    <svg class="shape pink" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/></svg>
+    <svg class="shape yellow" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="shape cream" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2z"/></svg>
+    <svg class="shape red" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="currentColor"/></svg>
+    <svg class="shape pink" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    <svg class="shape yellow" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="currentColor"/></svg>
+    <svg class="shape cream" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2z"/></svg>
+</div>
+
+    <!-- Header & Navigation -->
+    <!-- GANTI HEADER LAMA DENGAN INI -->
+<header>
+    <div class="logo">
+        <span class="logo-full">🍓 Berry's Day</span>
+        <span class="logo-short">🍓</span>
+    </div>
+    <div class="nav-wrapper">
+        <nav id="navbar">
+            <button class="active" onclick="showPage('page1', this)">Home</button>
+            <button onclick="showPage('page2', this)">Letter</button>
+            <button onclick="showPage('page3', this)">Memories</button>
+            <button onclick="showPage('page4', this)">Mini Game</button>
+            <button onclick="showPage('page5', this)">Ticket</button>
+            <button onclick="showPage('page6', this)">Date Match</button>
+        </nav>
+        <div class="nav-arrow">➔</div>
+    </div>
+</header>
+    <div class="container">
+
+        <!-- PAGE 1: HOME -->
+        <div id="page1" class="page active">
+            <div class="hero-banner">
+                <span class="badge-tag">★ Birthday Edition ★</span>
+                <h1>
+            <span class="title-happy">Happy Birthday</span><br>
+            <span class="title-sub">My Favorite Strawberry Cake ୨ৎ˚</span>
+        </h1>
+                <p style="margin-top: -20px;">Selamat ulang tahun buat si cantik aku yang selalu bikin hari-hariku ceria dan manis kayak kombinasi strawberry & cream!</p>
+            </div>
+
+            <div class="grid-2">
+                <!-- Pixel Cake Card -->
+                <div class="card theme-card" style="text-align: center;">
+                     <h3 >Blow out the candle!</h3>
+                     <div class="cake-container">
+                        <div class="pixel-flame" id="flame"></div>
+                        <div class="pixel-candle"><span></span></div>
+                        <div class="pixel-cream"></div>
+                        <div class="pixel-cake-body">
+                            <div class="cake-highlight"></div>
+                            <div class="cake-shadow"></div>
+                        </div>
+                        <div class="pixel-plate"></div>
+                    </div>
+                    
+                    <p id="cakeStatus">
+                        Close your eyes, make a wish dulu Sayang.<br> Terus klik tombol di bawah ya!
+                    </p>
+                    <button class="btn-action" onclick="blowCandle()" id="blowBtn">Tiup Lilin</button>
+                </div>
+
+                <!-- Audio Player Card -->
+                <div class="card theme-card music-player-card">
+                   
+                    <div class="music-icon-wrapper">
+                        <svg class="pink-note-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13"></path>
+                            <circle cx="6" cy="18" r="3"></circle>
+                            <circle cx="18" cy="16" r="3"></circle>
+                        </svg>
+                    </div>
+
+                    <div class="music-info" style="text-align: center;">
+                        
+                        <h3 class="song-title">Strawberry Kisses 🍓</h3>
+                        <p class="song-artist">Special Song for You</p>
+                    </div>
+
+                    <div class="time-container">
+                        <span id="currentTime">00:00</span>
+                        <span id="durationTime">00:00</span>
+                    </div>
+                    <div class="progress-bar-container" onclick="seekAudio(event)">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+                     <p style="text-align: center;" >
+                        Dengerin ini deh cantik, biar suasananya makin sweet like fresh strawberries and little happy moments! ♥︎
+                    </p>
+
+                    <audio id="bgMusic" src="music.mp3" preload="metadata"></audio>
+
+                    <button class="btn-action" onclick="toggleMusic()" id="musicBtn">
+                        <span id="btnText">PLAY</span> 
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigasi Bawah ke Letter -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn-action" onclick="showPage('page2', document.querySelectorAll('nav button')[1])" style="max-width: 320px;">
+                   ✉︎ Open with Love ✉︎
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE 2: LETTER -->
+        <div id="page2" class="page">
+            <h2>Love Letter ♥︎</h2 >
+            <p class="subtitle">a little piece of my heart, written just for you</p>
+            <div class="card theme-card" style="padding: 30px;">
+                <!-- GANTI ITEM LETTER (PAGE 2) DENGAN INI -->
+<div class="note-box">
+    <h4>Dear Cantikku!</h4>
+    <p class="letter-paragraph">
+        Happy birthday to the sweetest person with the cutest smile. Semoga di umur yang baru ini, hari-harimu selalu dipenuhi dengan happiness, love, and little things that make your heart smile. Kamu itu kayak strawberry kecil yang manis — membawa warna, keceriaan, dan warmth ke orang-orang di sekitarmu 🍓
+    </p>
+    <p class="letter-paragraph">
+        Thank you for being you, Sayang. Terima kasih sudah selalu punya cara untuk membuat suasana jadi lebih cerah dengan tawa dan energi positifmu. I hope you always keep your bright smile, chase your dreams, and find countless reasons to be happy every day.
+    </p>
+    <p class="letter-paragraph">
+        May this new chapter bring you more beautiful memories, sweet surprises, and endless blessings. Stay cute, stay happy, and never forget how special you are. Happy birthday, my little strawberry!
+    </p>
+</div>
+            </div>
+
+            <!-- Navigasi Bawah ke Memories -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn-action" onclick="showPage('page3', document.querySelectorAll('nav button')[2])" style="max-width: 320px;">
+                    Lihat Kenangan Manis 📸 ➔
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE 3: MEMORIES -->
+        <div id="page3" class="page">
+            <h2>Our Sweet Memories</h2>
+            <p class="subtitle">Foto, cerita, dan momen kecil yang somehow always bring a smile to my face</p>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-card active">
+                        <img src="images/foto1.webp" alt="One">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="images/foto2.webp" alt="Two">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="images/foto3.webp" alt="Three">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="images/foto4.webp" alt="Four">
+                    </div>
+                    <div class="carousel-card">
+                        <img src="images/foto5.webp" alt="Five">
+                    </div>
+                </div>
+
+                <div class="carousel-controls">
+                    <button class="btn-carousel" onclick="prevSlide()">❮</button>
+                    <button class="btn-carousel" onclick="nextSlide()">❯</button>
+                </div>
+            </div>
+
+            <!-- Navigasi Bawah ke Mini Game -->
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn-action" onclick="showPage('page4', document.querySelectorAll('nav button')[3])" style="max-width: 320px;">
+                    Main Game Yuk 🚀 ➔
+                </button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: MINI GAME -->
+        <div id="page4" class="page">
+            <h2>Tobeli Catch Game! 🔨🍓</h2>
+            <p class="subtitle">Tangkap sebanyak mungkin strawberry dalam 10 detik!</p>
+
+            <div class="card theme-card" style="text-align: center; max-width: 500px; margin: 0 auto;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 15px; font-weight: 700; color: var(--strawberry);">
+                    <div>Waktu: <span id="gameTimer">10</span>s</div>
+                    <div>Skor: <span id="gameScore">0</span> 🍓</div>
+                </div>
+
+                <div class="strawberry-grid">
+                    <div class="hole" onclick="catchStrawberry(this)"><span class="straw-icon">🍓</span></div>
+                    <div class="hole" onclick="catchStrawberry(this)"><span class="straw-icon">🍓</span></div>
+                    <div class="hole" onclick="catchStrawberry(this)"><span class="straw-icon">🍓</span></div>
+                    <div class="hole" onclick="catchStrawberry(this)"><span class="straw-icon">🍓</span></div>
+                    <div class="hole" onclick="catchStrawberry(this)"><span class="straw-icon">🍓</span></div>
+                    <div class="hole" onclick="catchStrawberry(this)"><span class="straw-icon">🍓</span></div>
+                </div>
+
+                <button class="btn-action" id="startBtn" onclick="startGame()" style="width: auto; padding: 10px 25px;">
+                    Mulai Game 🎮
+                </button>
+
+                <div id="gameResult" class="note-box" style="display: none; margin-top: 15px; text-align: center;">
+                    <h4 style="color: var(--strawberry); margin-bottom: 5px;"> ✮⋆˙ Hebat Banget! ✮⋆˙</h4>
+                    <p id="resultText" ></p>
+                    <button class="btn-action" onclick="showPage('page5', document.querySelectorAll('nav button')[4])" style="font-size: 13px; padding: 10px 20px;">
+                        Claim Tiket ➔
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 5: TICKET / COLOR VIBE -->
+       <!-- PAGE 5: TICKET / COLOR VIBE -->
+        <div id="page5" class="page">
+            <h2>Ticket to You🍓</h2>
+            <p class="subtitle">All about your vibes</p>
+
+            <!-- CARD LOVE BATTERY LEVEL (GANTI CARD PERTAMA DENGAN INI) -->
+            <div class="card theme-card">
+                <div class="love-meter-container">
+                    <div class="love-meter-header">
+                        <span class="love-title">Love Battery Level</span>
+                        <span class="love-percent">100% Fully Charged!</span>
+                    </div>
+
+                    <div class="love-bar-outer">
+                        <div class="love-bar-inner">
+                            <div class="love-segment">25% Cute</div>
+                            <div class="love-segment">50% Sweet</div>
+                            <div class="love-segment">75% Cozy</div>
+                            <div class="love-segment">100% Mine</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 18px; text-align: center;">
+                    Tingkat cintaku ke kamu itu <strong>selalu full 100%</strong>! <br>Dari energi kamu yang ceria, manisnya kamu, sampai rasa nyaman yang selalu kamu kasih tiap kali kita barengan ♥︎
+                </p>              
+            </div>
+
+            <!-- GRID-2: MEMBAGI MOOD & VOUCHER JADI KIRI-KANAN -->
+            <div class="grid-2">
+                <!-- Box Kiri: Mood Picker -->
+                <div class="card theme-card" style="text-align: center;">
+                    <div class="pixel-heart-bar">
+                        <div id="heart1" class="pixel-heart empty"></div>
+                        <div id="heart2" class="pixel-heart empty"></div>
+                        <div id="heart3" class="pixel-heart empty"></div>
+                    </div>
+
+                    <h3>Gimana, Baby? Udah happy?</h3>
+                    <p>Klik warna di bawah ini sesuai mood kamu sekarang :</p>
+                    
+                    <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 12px; flex-wrap: wrap;">
+                        <button onclick="handleColorMood('cream', 1)" class="btn-mood" style="background:#fefae0; color:#4a3e3d; border:1px solid #ddd;">🍦 Cream</button>
+                        <button onclick="handleColorMood('yellow', 2)" class="btn-mood" style="background:#fff3b0; color:#4a3e3d;">💛 Yellow</button>
+                        <button onclick="handleColorMood('red', 3)" class="btn-mood" style="background:#e63946; color:white;">🍓 Red</button>
+                    </div>
+                        
+                    <div id="moodMessage" class="note-box" style="font-size: 13px; text-align: left; display: none;"></div>
+                </div>
+
+                <!-- Box Kanan: Birthday Treat Voucher -->
+                <div class="card theme-card" style="text-align: center;">
+                    <div class="pixel-ticket-wrapper">
+                        <div class="pixel-ticket"></div>
+                    </div>
+                    
+                    <h3>Birthday Treat Voucher</h3>
+                    <p>
+                        Berlaku untuk 1x redeem ya! Bebas pilih tempat favoritmu. I'll take you there and make it special.
+                    </p>
+                    <button class="btn-action" onclick="showPage('page6', document.querySelectorAll('nav button')[5])">
+                        Mau Vouchernya 🎟️ ➔
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 6: DATE MATCH -->
+        <div id="page6" class="page">
+            <h2>Birthday Date Match</h2>
+            <p class="subtitle">Pilih outfit dan rencana kencan impianmu buat kita jalan bareng!</p>
+
+            <div class="card theme-card">
+                <!-- GANTI BAGIAN OUTFIT (PAGE 6) DENGAN INI -->
+<h3 style="text-align: left;">1. Pilih Outfit Vibe Kamu:</h3>
+<div class="grid-2">
+    <div class="builder-option selected" onclick="selectOpt(this, 'outfit')">
+        <strong>🍓 Sweet Strawberry Red</strong>
+        <p >Cardigan/Blouse merah + Rok krim manis</p>
+    </div>
+    <div class="builder-option" onclick="selectOpt(this, 'outfit')">
+        <strong>💛 Cozy Butter Yellow</strong>
+        <p >Atasan kuning lembut + Celana beige</p>
+    </div>
+    <div class="builder-option" onclick="selectOpt(this, 'outfit')">
+        <strong>🌸 Pinkies Day Out</strong>
+        <p >Find our perfect pink match</p>
+    </div>
+</div>
+
+                <h3 style="text-align: left;margin-top: 15px;">2. Pilih Birthday Date Idea:</h3>
+                <div class="grid-2">
+                    <div class="builder-option selected" onclick="selectOpt(this, 'date')">
+                        <strong>🍦 Ice Cream & Cafe Hopping</strong>
+                        <p >Nongkrong santai, ngopi, & makan gelato favorit</p>
+                    </div>
+                    <div class="builder-option" onclick="selectOpt(this, 'date')">
+                        <strong>🏕️ Outdoor Picnic Date</strong>
+                        <p>Piknik santai di taman sambil foto-foto estetik</p>
+                    </div>
+                    <div class="builder-option" onclick="selectOpt(this, 'date')">
+                        <strong>🎨 Museum & Gallery Walk</strong>
+                        <p >Jalan-jalan menikmati pameran seni & foto lucu</p>
+                    </div>
+                    <div class="builder-option" onclick="selectOpt(this, 'date')">
+                        <strong>🎮 Arcade & Playground Fun</strong>
+                        <p >Main timezone/arcade sepuasnya bareng-bareng</p>
+                    </div>
+                </div>
+
+                <button class="btn-action" onclick="generateOutfitResult()">Confirm Our Date ˙⋆✮</button>
+
+                <div id="outfitResult" style="display: none; margin-top: 20px;" class="note-box">
+                    <h4 style="font-size: 16px;">Yeay! Birthday Treat Locked  🎟️♥︎</h4>
+                    <p id="outfitText"></p>
+                    <button class="btn-action" style="margin-top: 12px; background: #25D366; border-color: #25D366;" onclick="sendToWA()">Kirim Plan Ini ke WA Aku 📲</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+       <span class="floating-heart">♥︎</span> Made with love, warmth & sweetness <span class="floating-heart">♥︎</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
