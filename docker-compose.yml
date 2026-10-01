@@ -15,10 +15,17 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=dokploy-network"
 
+      # ROOT
       - "traefik.http.routers.puvistoreable.rule=Host(`puvistoreable.web.id`)"
       - "traefik.http.routers.puvistoreable.entrypoints=web"
       - "traefik.http.routers.puvistoreable.service=puvistoreable"
 
+      # WILDCARD
+      - "traefik.http.routers.puvistoreable-wildcard.rule=HostRegexp(`^.+\\.puvistoreable\\.web\\.id$`)"
+      - "traefik.http.routers.puvistoreable-wildcard.entrypoints=web"
+      - "traefik.http.routers.puvistoreable-wildcard.service=puvistoreable"
+
+      # SERVICE
       - "traefik.http.services.puvistoreable.loadbalancer.server.port=80"
 
 networks:
