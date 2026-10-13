@@ -60,7 +60,7 @@ main,.site-nav,footer{position:relative;z-index:1}
 .btn-primary.sm:active{box-shadow:0 1px 0 #2f3b28}
 
 /* HERO */
-.hero{min-height:calc(92vh - 64px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;max-width:1280px;margin:auto;padding:48px clamp(22px,6vw,90px) 64px;position:relative}
+.hero{min-height:calc(84vh - 64px);display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:24px;max-width:1280px;margin:auto;padding:40px clamp(22px,6vw,90px) 44px;position:relative}
 .petal-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .petal{position:absolute;top:-30px;width:14px;height:24px;opacity:0;animation:fall linear infinite}
 @keyframes fall{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:.75}90%{opacity:.6}100%{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}
@@ -88,9 +88,9 @@ h1 .hand{display:block;color:var(--honey);letter-spacing:0;font-size:1.2em;line-
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-9px) rotate(.8deg)}}
 
 /* SECTIONS */
-section{padding:92px clamp(20px,6vw,90px);position:relative}
+section{padding:72px clamp(20px,6vw,90px);position:relative}
 .inner{max-width:1120px;margin:auto}
-.heading{text-align:center;max-width:680px;margin:0 auto 44px}
+.heading{text-align:center;max-width:680px;margin:0 auto 34px}
 h2{font-size:clamp(2rem,4vw,3.3rem);margin:0 0 12px;letter-spacing:-.02em}
 h2 .hand{color:var(--honey);font-size:1.25em;letter-spacing:0}
 .heading p{color:var(--soft);line-height:1.8;margin:0}
@@ -105,8 +105,8 @@ h2 .hand{color:var(--honey);font-size:1.25em;letter-spacing:0}
 .js .hero-art{animation:heroIn 1s cubic-bezier(.22,1,.36,1) .25s backwards}
 
 /* STORY */
-.story{display:grid;grid-template-columns:1fr;gap:clamp(26px,4vw,40px);justify-items:center;text-align:center}
-.story h2{max-width:22ch;margin-inline:auto}
+.story{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(32px,6vw,72px);align-items:center}
+.story h2{max-width:15ch}
 .paper{position:relative;max-width:560px;background:#fffdf6;border:1px solid var(--line);border-radius:10px;padding:clamp(26px,5vw,44px);box-shadow:var(--shadow);background-image:repeating-linear-gradient(transparent 0 33px,#efe3c740 33px 34px);transform:rotate(-.8deg)}
 .paper:before{content:"";position:absolute;inset:9px;border:1px dashed #e6d2a9;pointer-events:none}
 .paper p{position:relative;line-height:2.1;color:#6b5b43;margin:0 0 14px}
@@ -137,6 +137,7 @@ td svg{width:18px;height:18px;color:var(--honey)}
 .ab li b{color:var(--brown);white-space:nowrap}
 .price{font-family:"Playfair Display",serif;font-weight:700;font-size:1.3rem;color:var(--brown)}
 .ab p{color:var(--soft);font-size:.9rem;margin:8px 0 0}
+.ab .price{font-size:1.6rem;color:var(--brown);margin:2px 0 0}
 .price small{font:700 .85rem Nunito,sans-serif;color:var(--soft)}
 .ab .btn{margin-top:14px}
 
@@ -164,7 +165,7 @@ td svg{width:18px;height:18px;color:var(--honey)}
 
 /* FEATURES */
 .fg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:auto}
-.fg>div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:24px 20px;text-align:center;box-shadow:var(--shadow)}
+.fg>div{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:0;text-align:center;box-shadow:var(--shadow)}
 .ic{width:60px;height:60px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 50% 60%,#fff2c4,#fde9ae);border:1px solid #ecd48c;color:var(--brown)}
 .ic svg{width:28px;height:28px}
 .fg h3{font-size:1.15rem;margin-bottom:4px}
@@ -252,7 +253,7 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 .fg .art svg{width:88%;height:88%}
 
 /* ENVELOPE + LETTER */
-.letter-col{text-align:center;width:100%;max-width:640px}
+.letter-col{text-align:center;width:100%;max-width:600px;margin-inline:auto}
 .env-btn{border:0;background:transparent;display:block;margin:0 auto 18px;width:min(320px,76vw);padding:0;transition:transform .3s}
 .env-btn:hover{transform:translateY(-5px) rotate(-1deg)}
 .env-btn svg{width:100%;overflow:visible;filter:drop-shadow(0 16px 12px #76513b1c)}
@@ -268,7 +269,7 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 .paper{display:none;max-width:none;margin:26px auto 0;transform:none;text-align:left}
 .paper.open{display:block;animation:fadeUp .7s ease}
 .paper h3{font-family:Allura,cursive;font-weight:400;font-size:2.3rem;color:var(--brown);margin:0 0 6px;position:relative}
-.paper .sig{font-family:Allura,cursive;font-size:2rem;color:var(--honey);line-height:1.3;margin:10px 0 0}
+.paper .sig{font-weight:bold;font-family:cursive;font-size:1.2rem;color:var(--honey);line-height:1.3;margin:10px 0 0}
 .paper .bow-end{width:84px;height:56px;margin:6px 0 0 auto}
 .caret:after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--honey);margin-left:2px;vertical-align:-.2em;animation:blink .8s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
@@ -307,9 +308,74 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 .dots i{width:7px;height:7px;border-radius:50%;background:#e3d4ad}
 .dots i.on{background:var(--honey)}
 
+/* ---- v4 additions ---- */
+.story-head p{color:var(--soft);line-height:1.8;margin:14px 0 0;max-width:44ch}
+.final p.lead{margin-top:0}
+/* letter: envelope tucks into the paper corner once opened */
+.letter-col.opened{position:relative;padding-top:50px}
+.letter-col.opened .env-btn{position:absolute;top:0;right:6px;width:116px;margin:0;z-index:0;rotate:8deg;transform-origin:100% 0;pointer-events:none;animation:tuck .8s cubic-bezier(.34,1.56,.64,1) backwards}
+.letter-col.opened #envCta{display:none}
+.letter-col.opened .paper{position:relative;z-index:1;margin-top:0}
+@keyframes tuck{from{scale:2;opacity:.4;translate:-40px 70px}to{scale:1;opacity:1;translate:0 0}}
+/* pager */
+.pager{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.pg{min-width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--paper);font-weight:800;color:var(--olive);transition:.2s}
+.pg:hover{border-color:var(--yellow);background:#fff1c9}
+.pg.on{background:var(--olive);color:var(--cream);border-color:var(--olive)}
+.pg:disabled{opacity:.4;pointer-events:none}
+/* clickable feature cards */
+.fx{display:block;width:100%;padding:24px 20px;background:none;border:0;color:inherit;font:inherit;text-align:center;border-radius:var(--r)}
+.fx .ft{display:block;font:600 1.15rem "Playfair Display",Georgia,serif;margin-bottom:4px}
+.fx .hint{display:inline-block;margin-top:10px;font:800 .74rem Nunito,sans-serif;font-style:normal;color:var(--brown);background:#fff1c9;border:1px solid #ecd48c;border-radius:999px;padding:4px 12px}
+/* feature demos in modal */
+.pn .demo{margin:14px 0;padding:18px;border-radius:20px;background:linear-gradient(160deg,#fff7e0,#fde9ae);border:1px solid #ecd48c;text-align:center}
+.pn .dn{font-size:.82rem;margin:0 0 14px}
+.demo .btn-primary{width:auto;margin-top:0}
+.mp{display:flex;flex-direction:column;align-items:center;gap:10px}
+.disc{width:104px;height:104px;border-radius:50%;background:radial-gradient(circle,#46533a 0 12%,#2f3b28 13% 100%);display:grid;place-items:center;box-shadow:0 10px 24px #46533a44;animation:spin 6s linear infinite;animation-play-state:paused}
+.disc svg{width:76px;height:76px}
+.mp.playing .disc{animation-play-state:running}
+@keyframes spin{to{rotate:360deg}}
+.mi{width:100%}.mi b{font:600 1.1rem "Playfair Display",serif;display:block;color:var(--brown)}.mi span{font-size:.82rem;color:var(--soft)}
+.pbar{height:6px;border-radius:99px;background:#ecd9a4;margin:10px 0;overflow:hidden}
+.pbar i{display:block;height:100%;width:0;background:var(--honey);border-radius:99px;animation:prog 12s linear infinite;animation-play-state:paused}
+.mp.playing .pbar i{animation-play-state:running}
+@keyframes prog{to{width:100%}}
+.mp .eq{height:34px;justify-content:center}.mp .eq u{animation-play-state:paused}.mp.playing .eq u{animation-play-state:running}
+.pol{background:#fffdf6;padding:12px 12px 8px;border-radius:6px;box-shadow:0 12px 24px #66502a33;width:min(220px,100%);margin:0 auto;rotate:-2deg}
+.pimg{aspect-ratio:1;border-radius:3px;display:grid;place-items:center}.pimg svg{width:46%;height:auto}
+.pn .pol p{margin:8px 0 0;font:400 1.6rem Allura,cursive;color:var(--brown);line-height:1.1}
+.gnav{display:flex;justify-content:center;align-items:center;gap:14px;margin-top:16px;font-weight:800;color:var(--brown)}
+.gnav button{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);font-size:1.2rem;color:var(--olive)}
+.lt-paper{margin-top:14px;background:#fffdf6;border:1px dashed #e6d2a9;border-radius:10px;padding:14px 16px;text-align:left;animation:fadeUp .5s}
+.lt-paper[hidden]{display:none}
+.pn .lt-paper p{margin:0 0 8px}
+.qz b{font:600 1.1rem "Playfair Display",serif;color:var(--brown)}
+.qo{display:grid;gap:8px;margin-top:12px}
+.qo button{padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:var(--paper);font-weight:800;color:var(--olive);transition:.2s}
+.qo button:hover{border-color:var(--yellow);background:#fff1c9}
+.qr{min-height:1.6em;margin:10px 0 0;font-weight:800}.qr.ok{color:#46533a}.qr.no{color:#b3551f}
+.pwr{display:flex;gap:8px;margin-top:12px}
+.pwr input{flex:1;min-width:0;padding:11px 14px;border-radius:14px;border:1px solid var(--line);background:#fffdf6;font:inherit;color:var(--olive)}
+.pwm{min-height:1.6em;margin:10px 0 0;font-weight:800}.pwm.ok{color:#46533a}.pwm.no{color:#b3551f}
+.qrs{width:min(190px,70%);height:auto;border-radius:12px;box-shadow:0 10px 24px #66502a22}
+@media(min-width:1100px){.tb{max-width:1120px}.ab3{grid-template-columns:repeat(4,1fr);max-width:1120px}.ab li{font-size:.85rem}}
+@media(max-width:1023px){.story-head p{margin-inline:auto}}
+@media(max-width:767px){
+ .ab3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;padding:4px 2px 14px}
+ .ab3>.box{flex:0 0 82%;scroll-snap-align:center}
+ .letter-col.opened .env-btn{width:96px}
+}
+@media(max-width:480px){
+ .card{padding:8px 8px 12px}.cb{padding:10px 4px 0;gap:4px}.cb h3{font-size:.98rem}
+ .cb p{font-size:.78rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .th{font-size:2.3rem}.bd{font-size:.66rem;padding:2px 8px;top:7px;left:7px}.pr{font-size:1.05rem}
+ .row .btn{font-size:.8rem;padding:8px 10px}
+ .st>div{padding:20px 12px 16px}.st strong{font-size:1rem}.st span{font-size:.8rem}
+}
 /* BREAKPOINTS */
 @media(max-width:1023px){
- section{padding-block:76px}
+ section{padding-block:60px}
  .hero{grid-template-columns:1fr;text-align:center;min-height:auto;padding-top:28px;gap:0}
  .hero-copy>p{margin-inline:auto}
  .actions,.facts{justify-content:center}
@@ -327,11 +393,11 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--olive);padding:14px 22px 22px;border-bottom:1px solid #2f3b28;flex-direction:column;align-items:flex-start;gap:4px;box-shadow:0 18px 30px #2f3b2840}
  .nav-links.show{display:flex}
  .nav-links a,.nav-links button{padding:12px 0;font-size:1rem;width:100%;text-align:left}
- section{padding:62px 20px}
+ section{padding:46px 20px}
  .hero{padding:16px 20px 52px}
  .hero-art{min-height:340px}
- .heading{margin-bottom:30px}
- .vs,.ab3{grid-template-columns:1fr}
+ .heading{margin-bottom:24px}
+ .vs{grid-template-columns:1fr}
  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
  .card{padding:10px 10px 14px}
  .cb h3{font-size:1.02rem}
@@ -340,15 +406,15 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
  .fg{gap:12px}
 }
 @media(max-width:480px){
- section{padding:54px 16px}
+ section{padding:42px 16px}
  h1{font-size:2.5rem}
  .actions{flex-direction:column;align-items:stretch}
- .grid{grid-template-columns:1fr}
- .st{grid-template-columns:1fr}
+ .grid{grid-template-columns:1fr 1fr;gap:10px}
+ .st{grid-template-columns:1fr 1fr;gap:10px}
  .fg{grid-template-columns:1fr 1fr;gap:10px}
- .fg>div{padding:16px 10px}
+ .fx{padding:16px 10px}
  .fg span{font-size:.8rem}
- .fg h3{font-size:1.02rem}
+ .fx .ft{font-size:1.02rem}
  .cb p{font-size:.86rem}
  .row .btn{flex:1 1 100%}
  .md{padding:12px}
@@ -519,7 +585,7 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
  <nav class="nav-links" id="nav" aria-label="Menu utama">
   <a href="#template">Template</a>
   <a href="#paket">Paket</a>
-  <a href="#order">Cara order</a>
+  <a href="#order">How it works</a>
   <a href="#faq">FAQ</a>
   <button type="button" data-open="reg">Regulation</button>
  </nav>
@@ -530,12 +596,12 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 <div class="hero">
  <div class="petal-layer" id="petals" aria-hidden="true"></div>
  <div class="hero-copy">
-  <span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Website romantis &amp; kado digital</span>
-  <h1>Satu link penuh kenangan, <span class="hand">buat dia.</span></h1>
-  <p>Website romantis dengan foto, lagu, surat, dan mini game. Kamu kirim materinya, kami yang mengerjakan.</p>
+  <span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>A little love, made into a website</span>
+  <h1>Not just a link, <span class="hand">a little piece of you.</span></h1>
+  <p>Foto favorit, lagu kalian, surat kecil, sampai mini game—semua dirangkai dalam satu website personal. Kamu ceritakan idemu, biar kami yang bikin jadi nyata.</p>
   <div class="actions">
-   <a class="btn btn-primary" href="#template">Lihat template</a>
-   <a class="btn btn-secondary" data-wa="Halo Kak, aku mau tanya template" target="_blank" rel="noopener">Tanya via WhatsApp</a>
+   <a class="btn btn-primary" href="#template">Explore our collection</a>
+   <a class="btn btn-secondary" data-wa="Halo Kak, aku mau tanya template" target="_blank" rel="noopener">Let’s talk</a>
   </div>
   <ul class="facts">
    <li><svg><use href="#x-tag" width="17" height="17"/></svg>Mulai Rp10.000</li>
@@ -559,10 +625,10 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 <section class="alt rv" aria-labelledby="t-story">
  <div class="inner story">
   <div class="story-head">
-   <span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Cerita kecil</span>
+   <span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>A little trip down memory lane</span>
    <h2 id="t-story">Ingat nggak kapan terakhir kali kamu bikin dia bener-bener tersenyum karena gestur kecilmu?</h2>
   </div>
-  <div class="letter-col">
+  <div class="letter-col" id="lc">
    <button class="env-btn" id="envBtn" type="button" aria-label="Buka surat">
     <svg viewBox="0 -50 320 290" aria-hidden="true">
      <rect x="20" y="60" width="280" height="172" rx="12" fill="#e5cf9f"/>
@@ -577,11 +643,11 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
    </button>
    <button class="btn btn-primary" id="envCta" type="button">Buka suratnya</button>
    <article class="paper" id="paper" aria-live="polite">
-    <h3>Hai kamu,</h3>
-    <p class="lp">Kita sering terjebak dalam rutinitas sampai lupa kalau hubungan itu butuh dirayakan. Bunga bisa layu, dan barang mewah mungkin cuma tersimpan di lemari.</p>
-    <p class="lp">Tapi sebuah ruang digital yang berisi perjalanan, foto-foto acak, lagu kenangan, dan kalimat tulus dari hatimu? Itu tersimpan selamanya.</p>
-    <p class="lp">Template ini dibuat khusus buat kamu yang mau menunjukkan kalau effort itu masih ada. Tanpa perlu paham coding, website romantis siap bikin pasanganmu terharu dalam hitungan menit.</p>
-    <p class="sig">Dengan cinta, PUVISTOREABLE</p>
+    <h3>Hey, you.</h3>
+    <p class="lp">Kadang kita terlalu sibuk menjalani hari sampai lupa merayakan hal-hal kecil. Padahal, sesederhana diingat lewat lagu favorit, foto random, atau pesan yang ditulis khusus buat kita aja bisa bikin hati hangat lagi.</p>
+    <p class="lp">Bayangin dia buka satu link, lalu menemukan foto-foto kalian, lagu yang punya cerita, dan surat yang kamu tulis sendiri. Bukan sekadar hadiah yang dibuka sekali—dia bisa kembali ke sana setiap kali kangen.</p>
+    <p class="lp">Kamu nggak perlu jago coding atau pusing mulai dari nol. Pilih desain yang kamu suka, kirim cerita dan materi kalian, lalu biar kami yang merangkainya jadi a little surprise made just for them.</p>
+    <p class="sig">With love, PUVISTOREABLE</p>
     <svg class="bow-end" aria-hidden="true"><use href="#bow" width="84" height="56"/></svg>
    </article>
    <p class="skip-hint" id="skipHint" hidden>Ketuk surat untuk menampilkan semuanya sekaligus</p>
@@ -591,10 +657,10 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 
 <section class="rv" aria-labelledby="t-vs">
  <div class="inner">
-  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Chat atau link</span><h2 id="t-vs">Chat biasa, atau <span class="hand">sesuatu yang dia simpan?</span></h2></div>
+  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Chat atau link</span><h2 id="t-vs">Chat biasa, atau <span class="hand">sesuatu yang dia simpan?</span></h2><p>Kalau mau kasih sesuatu yang sedikit lebih personal, ubah ucapanmu jadi pengalaman kecil yang bisa dia buka lagi kapan pun.</p></div>
   <div class="vs">
-   <div class="box"><h3>Ucapan lewat chat</h3><p class="bub">Happy anniversary ya 🙂</p><p class="note">Terbaca, dibalas, tenggelam di tumpukan chat.</p></div>
-   <div class="box"><h3>Lewat link darimu</h3>
+   <div class="box"><h3>Just a chat</h3><p class="bub">Happy anniversary ya 🙂</p><p class="note">Manis saat dibaca, lalu pelan-pelan tenggelam di antara chat lainnya.</p></div>
+   <div class="box"><h3>A little gift from you</h3>
     <div class="stage" aria-hidden="true">
      <div class="glow"></div><i class="rg"></i><i class="rg"></i><i class="rg"></i>
      <div class="phone" id="ph">
@@ -607,14 +673,14 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
      <svg class="hrt" viewBox="0 0 24 24"><defs><linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#e29a1c"/></linearGradient></defs><path fill="url(#hg)" stroke="#d99a22" stroke-width=".8" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
     </div>
     <div class="dots" id="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
-    <p class="note">Surat, foto kalian, dan lagu favorit dalam satu link. Bisa dibuka lagi kapan saja.</p></div>
+    <p class="note">Satu link berisi hal-hal yang cuma kalian berdua yang ngerti. Personal, manis, dan bisa dibuka lagi kapan pun dia mau.</p></div>
   </div>
  </div>
 </section>
 
 <section class="alt rv" id="paket" aria-labelledby="t-paket">
  <div class="inner">
-  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Harga jelas</span><h2 id="t-paket">Perbandingan paket</h2></div>
+  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Harga jelas</span><h2 id="t-paket">Find your kind of gift</h2><p>Mau yang simple atau full of surprises? Pilih paket yang paling pas buat cerita kalian.</p></div>
   <div class="tb"><table>
    <thead><tr><th></th><th>Lite</th><th>Silver</th><th>Gold</th><th>Canva</th></tr></thead>
    <tbody>
@@ -635,44 +701,45 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 
 <section class="rv" id="template" aria-labelledby="t-tpl">
  <div class="inner">
-  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Katalog template</span><h2 id="t-tpl">Pilih template yang cocok</h2><p>Klik Preview untuk mencoba langsung, lalu pesan lewat WhatsApp.</p></div>
+  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Made for your kind of love</span><h2 id="t-tpl">Find the one</h2><p>Lihat preview-nya dulu, pilih yang paling kamu suka. Make your special moments extra memorable with us!</p></div>
   <div class="chips" id="chips" role="group" aria-label="Filter paket"></div>
   <div class="grid" id="grid"></div>
+  <div class="pager" id="pager"></div>
  </div>
 </section>
 
 <section class="alt rv" aria-labelledby="t-isi">
  <div class="inner">
-  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Bisa kamu sisipkan</span><h2 id="t-isi">Isi yang bisa kamu sisipkan</h2></div>
+  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Bisa kamu sisipkan</span><h2 id="t-isi">Make it yours</h2><p>Pilih detail yang bikin hadiah ini terasa seperti kalian. Tap salah satu untuk lihat little preview-nya.</p></div>
   <div class="fg">
-   <div><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-music" width="120" height="120"/></svg></div><h3>Musik</h3><span>Lagu yang punya cerita buat kalian.</span></div>
-   <div><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-camera" width="120" height="120"/></svg></div><h3>Galeri foto</h3><span>Kenangan terbaik dalam satu halaman.</span></div>
-   <div><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-letter" width="120" height="120"/></svg></div><h3>Surat</h3><span>Tulisan tulusmu, dibuka lewat sentuhan.</span></div>
-   <div><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-gift" width="120" height="120"/></svg></div><h3>Mini game</h3><span>Labirin, kuis, dan kejutan kecil (paket Gold).</span></div>
-   <div><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-lock" width="120" height="120"/></svg></div><h3>Password</h3><span>Hanya dia yang bisa membukanya (paket Gold).</span></div>
-   <div><div class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-qr" width="120" height="120"/></svg></div><h3>QR code</h3><span>Kirim lewat link atau cetak QR-nya.</span></div>
+   <div><button class="fx" type="button" data-fx="0" aria-label="Lihat contoh Musik"><span class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-music" width="120" height="120"/></svg></span><strong class="ft">Musik</strong><span class="fd">The song that feels like your story.</span><em class="hint">Lihat contoh</em></button></div>
+   <div><button class="fx" type="button" data-fx="1" aria-label="Lihat contoh Galeri foto"><span class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-camera" width="120" height="120"/></svg></span><strong class="ft">Galeri foto</strong><span class="fd">Your favorite moments, all in one place.</span><em class="hint">Lihat contoh</em></button></div>
+   <div><button class="fx" type="button" data-fx="2" aria-label="Lihat contoh Surat"><span class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-letter" width="120" height="120"/></svg></span><strong class="ft">Surat</strong><span class="fd">Words from you, waiting to be opened.</span><em class="hint">Lihat contoh</em></button></div>
+   <div><button class="fx" type="button" data-fx="3" aria-label="Lihat contoh Mini game"><span class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-gift" width="120" height="120"/></svg></span><strong class="ft">Mini game</strong><span class="fd">A playful little surprise (Gold package).</span><em class="hint">Lihat contoh</em></button></div>
+   <div><button class="fx" type="button" data-fx="4" aria-label="Lihat contoh Password"><span class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-lock" width="120" height="120"/></svg></span><strong class="ft">Password</strong><span class="fd">A little secret, just for them (Gold package).</span><em class="hint">Lihat contoh</em></button></div>
+   <div><button class="fx" type="button" data-fx="5" aria-label="Lihat contoh QR code"><span class="art"><svg viewBox="0 0 120 120" aria-hidden="true"><use href="#ic-qr" width="120" height="120"/></svg></span><strong class="ft">QR code</strong><span class="fd">Share the link or turn it into a QR code.</span><em class="hint">Lihat contoh</em></button></div>
   </div>
  </div>
 </section>
 
 <!-- Testimoni disembunyikan dulu: hapus atribut hidden setelah screenshot testimoni siap -->
-<section class="rv" hidden aria-labelledby="t-testi"><div class="inner"><div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Kata pembeli</span><h2 id="t-testi">Kata mereka</h2></div><div class="tr" id="tr"></div></div></section>
+<section class="rv" hidden aria-labelledby="t-testi"><div class="inner"><div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Kata pembeli</span><h2 id="t-testi">Kata mereka</h2><p>Little love stories from our customers.</p></div><div class="tr" id="tr"></div></div></section>
 
 <section class="rv" id="order" aria-labelledby="t-order">
  <div class="inner">
-  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Mudah dipesan</span><h2 id="t-order">Cara order</h2></div>
+  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Easy as 1, 2, 3, 4</span><h2 id="t-order">How it works</h2><p>You bring the memories. We’ll take care of the rest.</p></div>
   <div class="st">
-   <div><strong>Pilih template</strong><span>Coba preview, pilih yang paling cocok.</span></div>
-   <div><strong>Chat &amp; bayar</strong><span>Ceritakan momennya, bayar via QRIS.</span></div>
-   <div><strong>Kirim materi</strong><span>Foto, lagu, dan pesan lewat form &amp; WhatsApp.</span></div>
-   <div><strong>Terima link</strong><span>Siap dikirim ke dia dalam 2–3 hari.</span></div>
+   <div><strong>Find your template</strong><span>Explore the previews and find your match.</span></div>
+   <div><strong>Let’s make it happen</strong><span>Tell us what you have in mind, then complete your payment via QRIS.</span></div>
+   <div><strong>Send us your memories</strong><span>Share your photos, song choices, and personal message.</span></div>
+   <div><strong>Your gift is ready</strong><span>Your website will be ready in 2–3 days, ready to make their day.</span></div>
   </div>
  </div>
 </section>
 
 <section class="alt rv" id="faq" aria-labelledby="t-faq">
  <div class="inner">
-  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Sering ditanya</span><h2 id="t-faq">Pertanyaan umum</h2></div>
+  <div class="heading"><span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Good to know</span><h2 id="t-faq">Before you order</h2><p>A few things you might want to know before creating your gift.</p></div>
   <div class="faq">
    <details><summary>Bisa dibuka di HP pasangan?</summary><p>Bisa. Semua template responsif untuk HP, tablet, dan laptop.</p></details>
    <details><summary>Apa bedanya Website Code dan Canva?</summary><p>Website Code dikerjakan kami dari materi yang kamu kirim, dan bisa interaktif. Template Canva bisa kamu edit sendiri kapan saja dan dibagikan lewat satu link.</p></details>
@@ -685,8 +752,8 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
 
 <section class="final rv" aria-labelledby="t-end">
  <div class="inner">
-  <span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Siap dirangkai</span><h2 id="t-end">Bunga akan layu. <span class="hand">Ini tidak.</span></h2>
-  <div class="actions"><a class="btn btn-primary" href="#template">Pilih template</a><a class="btn btn-secondary" data-wa="Halo Kak, aku mau tanya template" target="_blank" rel="noopener">Tanya dulu</a></div>
+  <span class="eyebrow"><svg><use href="#sparkle" width="16" height="16"/></svg>Siap dirangkai</span><h2 id="t-end">Bunga akan layu. <span class="hand">Ini tidak.</span></h2><p class="lead">Satu link, sejuta kenangan. Find your template-nya, sisanya kami yang rangkai.</p>
+  <div class="actions"><a class="btn btn-primary" href="#template">Find your template</a><a class="btn btn-secondary" data-wa="Halo Kak, aku mau tanya template" target="_blank" rel="noopener">Have a question?</a></div>
  </div>
  <svg class="field-svg" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
  <path d="M0 190Q300 130 600 180T1200 160V272H0Z" fill="#c5cd9f"/>
@@ -744,7 +811,7 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
   <span><svg aria-hidden="true"><use href="#x-dc" width="20" height="20"/></svg>Discord: puvienchant</span>
   <a href="mailto:puvistoreable@gmail.com"><svg aria-hidden="true"><use href="#x-mail" width="20" height="20"/></svg>puvistoreable@gmail.com</a>
  </div>
- <p class="copy">© 2026 PUVISTOREABLE. Dibuat untuk merayakan setiap momen cinta.</p>
+ <p class="copy">© 2026 PUVISTOREABLE. Made for the moments worth keeping.</p>
 </footer>
 <a class="btn btn-primary wa" data-wa="Halo Kak, aku butuh bantuan" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#x-wa" width="20" height="20"/></svg>Chat WhatsApp</a>
 
@@ -756,6 +823,7 @@ footer p.copy{margin:0;opacity:.85;font-weight:600}
  <p><b>Personal use.</b> Template hanya untuk pemakaian pribadi, dilarang dijual ulang atau didistribusikan. Menjadikan katalog ini sebagai request custom di store lain dikenai penalti Rp100.000.</p>
  <button class="btn btn-primary" type="button" data-close>Saya mengerti</button></div></div>
 <div class="md" id="pvm"><div class="pn" id="pvb" role="dialog" aria-modal="true" aria-label="Detail template"></div></div>
+<div class="md" id="fxm"><div class="pn" id="fxb" role="dialog" aria-modal="true" aria-label="Contoh fitur"></div></div>
 <div class="md dm" id="dm"><div class="bar"><button class="btn btn-secondary sm" type="button" data-dev="p">HP</button><button class="btn btn-secondary sm" type="button" data-dev="l">Laptop</button><a id="nt" target="_blank" rel="noopener">Buka di tab baru</a><button class="btn btn-secondary sm" type="button" data-closedm>Tutup</button></div><div id="dv"><iframe id="fr" title="Preview template" sandbox="allow-scripts allow-same-origin allow-popups"></iframe></div></div>
 
 <script>
@@ -783,9 +851,12 @@ const P=[
 const T=[]; // isi path screenshot testimoni asli, mis. 'img/testi-1.webp'
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const PET='<svg class="petal-deco" aria-hidden="true"><use href="#sf-head" width="72" height="72"/></svg>';
-function draw(f,anim){$('#grid').innerHTML=P.filter(x=>f=='all'||x.k==f).map((x,j)=>{const i=P.indexOf(x);return`<div class="card"${anim?` style="animation:cardIn .6s cubic-bezier(.34,1.56,.64,1) ${Math.min(j,11)*45}ms backwards"`:''}><div class="th" data-k="${x.k}">${x.img?`<img src="${x.img}" alt="${x.n}" loading="lazy">`:x.e+PET}<span class="bd">${PK[x.k]}</span></div><div class="cb"><h3>${x.n}</h3><p>${x.d}</p><span class="pr">Rp${x.p.toLocaleString('id-ID')}</span><div class="row"><button class="btn btn-secondary sm" type="button" data-pv="${i}">Preview</button><a class="btn btn-primary sm" target="_blank" rel="noopener" href="${wa('Halo Kak, aku mau order template '+x.n)}">Pesan</a></div></div></div>`}).join('')}
+let F='all',PG=0;const mqS=matchMedia('(max-width:767px)'),mqM=matchMedia('(max-width:1023px)'),per=()=>mqS.matches?4:mqM.matches?6:8;
+function draw(f,anim){if(f!==undefined&&f!==F){F=f;PG=0}const L=P.filter(x=>F=='all'||x.k==F),n=per(),pages=Math.max(1,Math.ceil(L.length/n));PG=Math.min(PG,pages-1);$('#grid').innerHTML=L.slice(PG*n,PG*n+n).map((x,j)=>{const i=P.indexOf(x);return`<div class="card"${anim?` style="animation:cardIn .6s cubic-bezier(.34,1.56,.64,1) ${Math.min(j,11)*45}ms backwards"`:''}><div class="th" data-k="${x.k}">${x.img?`<img src="${x.img}" alt="${x.n}" loading="lazy">`:x.e+PET}<span class="bd">${PK[x.k]}</span></div><div class="cb"><h3>${x.n}</h3><p>${x.d}</p><span class="pr">Rp${x.p.toLocaleString('id-ID')}</span><div class="row"><button class="btn btn-secondary sm" type="button" data-pv="${i}">Preview</button><a class="btn btn-primary sm" target="_blank" rel="noopener" href="${wa('Halo Kak, aku mau order template '+x.n)}">Pesan</a></div></div></div>`}).join('');$('#pager').innerHTML=pages>1?`<button class="pg" type="button" data-pg="-1" aria-label="Halaman sebelumnya"${PG?'':' disabled'}>‹</button>`+Array.from({length:pages},(_,k)=>`<button class="pg${k==PG?' on':''}" type="button" data-pgn="${k}" aria-label="Halaman ${k+1}"${k==PG?' aria-current="page"':''}>${k+1}</button>`).join('')+`<button class="pg" type="button" data-pg="1" aria-label="Halaman berikutnya"${PG<pages-1?'':' disabled'}>›</button>`:''}
 $('#chips').innerHTML=[['all','Semua'],...Object.entries(PK)].map((c,i)=>`<button class="chip${i?'':' on'}" type="button" data-f="${c[0]}" aria-pressed="${i?'false':'true'}">${c[1]}</button>`).join('');
 draw('all');
+mqS.addEventListener('change',()=>draw());mqM.addEventListener('change',()=>draw());
+function toChips(){if($('#chips').getBoundingClientRect().top<70)$('#chips').scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})}
 $('#tr').innerHTML=T.length?T.map(s=>`<img src="${s}" alt="Testimoni pembeli" loading="lazy">`).join(''):[1,2,3,4].map(()=>'<div class="ph0">Tempel screenshot chat pembeli di sini (isi array T)</div>').join('');
 $$('[data-wa]').forEach(a=>a.href=wa(a.dataset.wa));
 const dm=$('#dm'),fr=$('#fr');
@@ -797,6 +868,14 @@ document.addEventListener('click',e=>{const t=e.target.closest('button,a')||e.ta
  else if(t.dataset.dev){$('#dv').className=t.dataset.dev=='l'?'l':''}
  else if(t.dataset.open){$('#'+t.dataset.open).classList.add('on');$('#nav').classList.remove('show')}
  else if(t.dataset.pv){openPv(+t.dataset.pv)}
+ else if(t.dataset.pg!==undefined){PG+=+t.dataset.pg;draw(undefined,true);toChips()}
+ else if(t.dataset.pgn!==undefined){PG=+t.dataset.pgn;draw(undefined,true);toChips()}
+ else if(t.dataset.fx!==undefined){openFx(+t.dataset.fx)}
+ else if('mp' in t.dataset){const on=t.closest('.mp').classList.toggle('playing');t.textContent=on?'Jeda':'Putar contoh'}
+ else if(t.dataset.g){gi=(gi+ +t.dataset.g+GS.length)%GS.length;gal()}
+ else if('lt' in t.dataset){const p=$('#ltp');p.hidden=!p.hidden;t.textContent=p.hidden?'Ketuk untuk membuka':'Tutup surat'}
+ else if(t.dataset.qz!==undefined){const ok=t.dataset.qz==='1',q=$('#qr');q.textContent=ok?'Benar! Kamu memang paling ngerti aku.':'Hmm, coba lagi ya.';q.className='qr '+(ok?'ok':'no')}
+ else if('pw' in t.dataset){checkPw()}
  else if(t.id=='dm'||t.hasAttribute('data-closedm'))closeDm();
  else if(t.hasAttribute('data-close')||t.classList.contains('md'))closeAll()});
 document.addEventListener('change',e=>{if(e.target.dataset.ad!==undefined)upd()});
@@ -817,6 +896,24 @@ nav.addEventListener('click',e=>{if(e.target.closest('a'))nav.classList.remove('
 // falling petals
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 if(!RM){const L=$('#petals');for(let i=0;i<12;i++){const p=document.createElement('div');p.className='petal';p.innerHTML='<svg viewBox="0 0 20 34" width="14" height="24"><use href="#petal-s" width="20" height="34"/></svg>';p.style.cssText=`left:${Math.random()*100}%;--dx:${(Math.random()-.5)*160}px;--dy:${520+Math.random()*200}px;--rot:${Math.random()*540-270}deg;animation-duration:${9+Math.random()*9}s;animation-delay:${-Math.random()*14}s`;L.append(p)}}
+
+// feature examples (modal)
+let gi=0;
+const GS=[['linear-gradient(135deg,#ffe27a,#d99a22)','Pertama kali jalan bareng'],['linear-gradient(135deg,#d8e2b8,#87966a)','Senyum yang bikin lupa waktu'],['linear-gradient(135deg,#f6dfbd,#c98f5a)','Hari ulang tahun kita']];
+function gal(){const s=GS[gi];$('#gs').innerHTML=`<div class="pol"><div class="pimg" style="background:${s[0]}"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#sf-head" width="100" height="100"/></svg></div><p>${s[1]}</p></div>`;$('#gc').textContent=(gi+1)+' / '+GS.length}
+function qrSvg(){let r=7;const N=25,rnd=()=>(r=(r*1103515245+12345)&0x7fffffff)/0x7fffffff,fin=(x,y)=>`<rect x="${x}" y="${y}" width="7" height="7" fill="#46533a"/><rect x="${x+1}" y="${y+1}" width="5" height="5" fill="#fffdf6"/><rect x="${x+2}" y="${y+2}" width="3" height="3" fill="#46533a"/>`;let c='';
+ for(let y=0;y<N;y++)for(let x=0;x<N;x++){const f=(x<8&&y<8)||(x>N-9&&y<8)||(x<8&&y>N-9);if(!f&&rnd()>.52)c+=`<rect x="${x}" y="${y}" width="1" height="1"/>`}
+ return`<svg class="qrs" viewBox="-1 -1 27 27" role="img" aria-label="Contoh tampilan QR code"><rect x="-1" y="-1" width="27" height="27" fill="#fffdf6"/><g fill="#46533a">${c}</g>${fin(0,0)}${fin(N-7,0)}${fin(0,N-7)}</svg>`}
+const FX=[
+{n:'Musik',d:'Lagu yang punya cerita buat kalian ikut menemani saat dia membuka website.',note:'Contoh tampilan. Lagunya kamu yang pilih.',h:()=>`<div class="mp"><div class="disc"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#sf-head" width="100" height="100"/></svg></div><div class="mi"><b>Lagu kita</b><span>Contoh pemutar musik</span><div class="pbar"><i></i></div><div class="eq"><u></u><u></u><u></u><u></u><u></u></div></div><button class="btn btn-primary sm" type="button" data-mp>Putar contoh</button></div>`},
+{n:'Galeri foto',d:'Kenangan terbaik kalian tersusun rapi dalam satu halaman.',note:'Contoh tampilan. Fotonya adalah foto kalian.',h:()=>`<div id="gs"></div><div class="gnav"><button type="button" data-g="-1" aria-label="Foto sebelumnya">‹</button><span id="gc"></span><button type="button" data-g="1" aria-label="Foto berikutnya">›</button></div>`},
+{n:'Surat',d:'Words from you, waiting to be opened.',note:'Contoh isi. Suratnya ditulis dari ceritamu.',h:()=>`<button class="btn btn-primary sm" type="button" data-lt>Ketuk untuk membuka</button><div class="lt-paper" id="ltp" hidden><p>Untuk kamu yang selalu ada,</p><p>Terima kasih sudah jadi rumah paling nyaman. Semoga kita terus tumbuh bareng, seperti bunga matahari yang selalu mencari cahaya.</p><p class="hand" style="font-size:1.7rem;color:var(--honey)">dari aku</p></div>`},
+{n:'Mini game',d:'Kuis kecil dan kejutan manis supaya dia makin senyum (paket Gold).',note:'Contoh kuis. Pertanyaannya disesuaikan dengan kisah kalian.',h:()=>`<div class="qz"><b>Makanan favoritku apa?</b><div class="qo"><button type="button" data-qz="0">Nasi goreng</button><button type="button" data-qz="1">Bakso</button><button type="button" data-qz="2">Mie ayam</button></div><p class="qr" id="qr" aria-live="polite"></p></div>`},
+{n:'Password',d:'Hanya dia yang tahu kata kuncinya yang bisa masuk (paket Gold).',note:'Contoh saja. Kata kuncinya kamu yang tentukan.',h:()=>`<p style="margin:0">Coba ketik: <b>cinta</b></p><div class="pwr"><input id="pwi" type="password" placeholder="Kata kunci" autocomplete="off" aria-label="Kata kunci"><button class="btn btn-primary sm" type="button" data-pw>Buka</button></div><p class="pwm" id="pwm" aria-live="polite"></p>`},
+{n:'QR code',d:'Kirim lewat link, atau cetak QR-nya di kartu dan kado.',note:'Contoh tampilan, bukan QR asli.',h:()=>`${qrSvg()}<p style="margin:10px 0 0;font-weight:800">Scan untuk membuka kejutanmu</p>`}];
+function openFx(i){const x=FX[i];$('#fxb').innerHTML=`<h3>${x.n}</h3><p>${x.d}</p><div class="demo">${x.h()}</div><p class="dn">${x.note}</p><button class="btn btn-secondary" type="button" data-close>Tutup</button>`;gi=0;if(i==1)gal();$('#fxm').classList.add('on')}
+function checkPw(){const i=$('#pwi'),m=$('#pwm');if(i.value.trim().toLowerCase()=='cinta'){m.className='pwm ok';m.textContent='Terbuka! Selamat datang, sayang 💛'}else{m.className='pwm no';m.textContent='Belum tepat, coba lagi ya.';if(!RM)i.animate([{translate:'0'},{translate:'-8px'},{translate:'8px'},{translate:'-5px'},{translate:'0'}],{duration:350})}}
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.id==='pwi')checkPw()});
 // phone screens
 const sc=$$('#ph .sc'),dt=$$('#dots i');let n=0;
 setInterval(()=>{sc[n].classList.remove('on');dt[n].classList.remove('on');n=(n+1)%sc.length;sc[n].classList.add('on');dt[n].classList.add('on')},2600);
@@ -834,7 +931,7 @@ async function typeLetter(){
 function openLetter(){
  const eb=$('#envBtn'),cta=$('#envCta');if(eb.classList.contains('open'))return;
  eb.classList.add('open');cta.disabled=true;cta.textContent='Surat terbuka';
- setTimeout(()=>{$('#paper').classList.add('open');$('#paper').scrollIntoView({behavior:RM?'auto':'smooth',block:'nearest'});typeLetter()},RM?0:900)}
+ setTimeout(()=>{$('#lc').classList.add('opened');$('#paper').classList.add('open');$('#paper').scrollIntoView({behavior:RM?'auto':'smooth',block:'nearest'});typeLetter()},RM?0:900)}
 $('#envBtn').addEventListener('click',openLetter);$('#envCta').addEventListener('click',openLetter);
 $('#paper').addEventListener('click',()=>{if(typing)skip=true});
 // reveal on scroll
@@ -846,7 +943,7 @@ const io='IntersectionObserver'in window?new IntersectionObserver(r=>r.forEach(x
 $$('.rv').forEach(el=>io?io.observe(el):el.classList.add('in'));
 // jelly bounce on touch / hover
 if(!RM){
- const J='.card,.box,.fg>div,.st>div,.chip,.btn,details,.facts li,.env-btn';
+ const J='.card,.box,.fg>div,.st>div,.chip,.btn,.pg,details,.facts li,.env-btn';
  const JK=[{scale:'1'},{scale:'1.09 .91'},{scale:'.95 1.05'},{scale:'1.03 .98'},{scale:'.99 1.01'},{scale:'1'}];
  const HK=[{translate:'0 0',scale:'1'},{translate:'0 -16px',scale:'1.07 .95'},{translate:'0 0',scale:'.93 1.08'},{translate:'0 -6px',scale:'1.02 .99'},{translate:'0 0',scale:'1'}];
  const jelly=el=>{if(el._j)return;el._j=1;el.animate(JK,{duration:800,easing:'ease-out'}).onfinish=()=>el._j=0;
