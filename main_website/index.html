@@ -1111,6 +1111,42 @@
       background: var(--paper)
     }
 
+    .tr>.rc {
+      height: auto;
+      flex: 0 0 280px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .rc .stars {
+      color: var(--honey);
+      font-size: 1.15rem;
+      letter-spacing: 2px
+    }
+
+    .rc .tp {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--olive);
+      background: #87966a22;
+      align-self: flex-start;
+      padding: 3px 10px;
+      border-radius: 99px
+    }
+
+    .rc p {
+      margin: 0;
+      font-size: .9rem;
+      line-height: 1.6;
+      color: var(--brown)
+    }
+
     /* STEPS */
     .st {
       display: grid;
@@ -3207,9 +3243,13 @@
               <li>Tambah musik<b>+Rp5.000</b></li>
               <li>Tambah section<b>+Rp10.000</b></li>
               <li>Ganti warna<b>+Rp5.000</b></li>
-              <li>QR custom unik<b>+Rp5.000</b></li>
-              <li>Upgrade lifetime<b>+Rp100.000</b></li>
+              <li>QR custom unik <small>(Lite &amp; Silver)</small><b>+Rp5.000</b></li>
               <li>Rush 4–8 jam<b>+Rp5.000</b></li>
+            </ul>
+            <h3>Perpanjang masa aktif <small>(Silver &amp; Gold)</small></h3>
+            <ul>
+              <li>Tambah 1 bulan<b>+Rp5.000</b></li>
+              <li>Tambah 1 tahun<b>+Rp55.000</b></li>
             </ul>
           </div>
           <div class="box ab">
@@ -3296,13 +3336,13 @@
       </div>
     </section>
 
-    <!-- Testimoni disembunyikan dulu: hapus atribut hidden setelah screenshot testimoni siap -->
-    <section class="rv" hidden aria-labelledby="t-testi">
+    <!-- Ulasan tampil otomatis setelah array R (di script) diisi bintang + teks -->
+    <section class="rv" id="ulasan" hidden aria-labelledby="t-testi">
       <div class="inner">
         <div class="heading"><span class="eyebrow"><svg>
               <use href="#sparkle" width="16" height="16" />
             </svg>Kata pembeli</span>
-          <h2 id="t-testi">Kata mereka</h2>
+          <h2 id="t-testi">Ulasan pembeli</h2>
           <p>Little love stories from our customers.</p>
         </div>
         <div class="tr" id="tr"></div>
@@ -3324,7 +3364,7 @@
           <div><strong>Send us your memories</strong><span>Share your photos, song choices, and personal message.</span>
           </div>
           <div><strong>Your gift is ready</strong><span>Your website will be ready in 2–3 days, ready to make their
-              day.</span></div>
+              day. Masa aktif dihitung sejak website diserahkan.</span></div>
         </div>
       </div>
     </section>
@@ -3349,8 +3389,10 @@
           </details>
           <details>
             <summary>Link aktif sampai kapan?</summary>
-            <p>Lite dan Canva aktif selamanya. Silver dan Gold aktif 3 bulan. Mau permanen? Tambah Upgrade Lifetime
-              (+Rp100.000) dan kamu dapat source code serta diajari deploy.</p>
+            <p>Lite dan Canva aktif selamanya. Silver dan Gold aktif <b>3 bulan sejak website diserahkan</b>; tanggal
+              berakhirnya kami kabari saat link dikirim. Mau lebih lama? Perpanjang <b>Rp5.000 per bulan</b> atau
+              <b>Rp55.000 per tahun</b>, dihitung dari tanggal masa aktif berakhir. Kami ingatkan sebelum masa aktif
+              habis.</p>
           </details>
           <details>
             <summary>Lagunya bisa diganti?</summary>
@@ -3468,10 +3510,13 @@
       <p>Jam operasional 08.00–24.00 WIB. Dengan membayar, kamu menyetujui ketentuan di bawah.</p>
       <p><b>Payment &amp; refund.</b> Order diproses setelah pembayaran QRIS dikonfirmasi. Payment = fixed order, tidak
         bisa cancel atau refund.</p>
-      <p><b>Pengerjaan &amp; revisi.</b> ±3 hari kerja setelah payment dan data lengkap. Gratis revisi minor maksimal 2x
+      <p><b>Pengerjaan &amp; revisi.</b> ±2-3 hari kerja setelah payment dan data lengkap. Gratis revisi minor maksimal 2x
         (typo, teks, posisi foto).</p>
       <p><b>Rush (+Rp5.000).</b> Siap sekitar 4–8 jam setelah payment dikonfirmasi.</p>
       <p><b>Custom design.</b> Order paling lambat H-15 sebelum tanggal pemakaian, dengan brief yang jelas.</p>
+      <p><b>Masa aktif.</b> Silver &amp; Gold aktif 3 bulan sejak website diserahkan. Perpanjangan: Rp5.000/bulan atau
+        Rp55.000/tahun, dihitung dari tanggal berakhir. Jika tidak diperpanjang, link dinonaktifkan dan data disimpan
+        14 hari, lalu dihapus. Revisi dan perubahan desain tidak termasuk perpanjangan.</p>
       <p><b>Personal use.</b> Template hanya untuk pemakaian pribadi, dilarang dijual ulang atau didistribusikan.
         Menjadikan katalog ini sebagai request custom di store lain dikenai penalti Rp100.000.</p>
       <button class="btn btn-primary" type="button" data-close>Saya mengerti</button>
@@ -3518,6 +3563,10 @@
         imgs: ['img/mini-spidergwen-black-pink-mood-1.webp', 'img/mini-spidergwen-black-pink-mood-2.webp', 'img/mini-spidergwen-black-pink-mood-3.webp']
       },
       {
+        n: 'Mini Bottle Shake', k: 'silver', p: 25000, e: '🍾', d: 'Kocok botolnya, kejutan manis keluar satu per satu.', demo: 'https://mini-bottle-shake.puvistoreable.web.id/',
+        img: 'img/mini-bottle-shake.png'
+      },
+      {
         n: 'Green Floral', k: 'gold', p: 35000, e: '🌿', d: 'Dedaunan hijau, mini game, dan password.', demo: 'https://green-floral.puvistoreable.web.id/',
         img: 'img/green-floral.png',
         imgs: ['img/green-floral-mood-1.webp', 'img/green-floral-mood-2.webp', 'img/green-floral-mood-3.webp']
@@ -3531,6 +3580,14 @@
         n: 'Blue Moonlit', k: 'gold', p: 40000, e: '🌙', d: 'Pixel art malam hari warna biru.', demo: 'https://blue-moonlit.puvistoreable.web.id/',
         img: 'img/blue-moonlit.png',
         imgs: ['img/blue-moonlit-mood-1.webp', 'img/blue-moonlit-mood-2.webp', 'img/blue-moonlit-mood-3.webp']
+      },
+      {
+        n: 'Ube Matcha', k: 'gold', p: 35000, e: '🍵', d: 'Ungu ube dan hijau matcha yang lembut, penuh kejutan interaktif.', demo: 'https://matcha-ube.puvistoreable.web.id/',
+        img: 'img/ube-matcha.png'
+      },
+      {
+        n: 'Halloween Party', k: 'gold', p: 40000, e: '🎃', d: 'Pesta Halloween: labu, kue, mini game permen, dan kejutan spooky.', demo: 'https://halloween-party.puvistoreable.web.id/',
+        img: 'img/halloween-party.png'
       },
       {
         n: 'Berry Pinkies', k: 'gold', p: 45000, e: '🍓', d: 'Berry-pink manis dengan fitur interaktif penuh.', demo: 'https://berry-pinkies.puvistoreable.web.id/',
@@ -3568,7 +3625,14 @@
         imgs: ['imgs/lily-wood-mood-1.png', 'imgs/lily-wood-mood-2.png', 'imgs/lily-wood-mood-3.png', 'imgs/lily-wood-mood-4.png']
       }];
 
-    const T = []; // isi path screenshot testimoni asli, mis. 'img/testi-1.webp'
+    // Ulasan: s = bintang (1-5), t = teks ulasan. Kartu hanya tampil jika s dan t terisi.
+    const R = [
+      { n: 'Blue Moonlit', s: 0, t: '' },
+      { n: 'Lily Wood', s: 0, t: '' },
+      { n: 'Boyfriend Day', s: 0, t: '' },
+      { n: 'Mini Spidergwen (Black-Pink)', s: 0, t: '' },
+      { n: 'Bouquet Bloomy', s: 0, t: '' }
+    ];
     const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
     const PET = '<svg class="petal-deco" aria-hidden="true"><use href="#sf-head" width="72" height="72"/></svg>';
     let F = 'all', PG = 0; const mqS = matchMedia('(max-width:767px)'), mqM = matchMedia('(max-width:1023px)'), per = () => mqS.matches ? 4 : mqM.matches ? 6 : 8;
@@ -3577,7 +3641,11 @@
     draw('all');
     mqS.addEventListener('change', () => draw()); mqM.addEventListener('change', () => draw());
     function toChips() { if ($('#chips').getBoundingClientRect().top < 70) $('#chips').scrollIntoView({ behavior: RM ? 'auto' : 'smooth', block: 'start' }) }
-    $('#tr').innerHTML = T.length ? T.map(s => `<img src="${s}" alt="Testimoni pembeli" loading="lazy">`).join('') : [1, 2, 3, 4].map(() => '<div class="ph0">Tempel screenshot chat pembeli di sini (isi array T)</div>').join('');
+    const RVW = R.filter(r => r.s >= 1 && r.t), esc = v => String(v).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    if (RVW.length) {
+      $('#tr').innerHTML = RVW.map(r => { const n = Math.min(5, Math.round(r.s)); return `<article class="rc"><div class="stars" role="img" aria-label="${n} dari 5 bintang">${'★'.repeat(n)}${'☆'.repeat(5 - n)}</div><span class="tp">${esc(r.n)}</span><p>${esc(r.t)}</p></article>` }).join('');
+      $('#ulasan').hidden = false;
+    }
     $$('[data-wa]').forEach(a => a.href = wa(a.dataset.wa));
     function closeAll() { $$('.md').forEach(m => m.classList.remove('on')) }
     document.addEventListener('click', e => {
@@ -3598,9 +3666,9 @@
     document.addEventListener('change', e => { if (e.target.dataset.ad !== undefined) upd() });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll() });
     const fmt = n => n.toLocaleString('id-ID'); let cur;
-    const BF = { lite: ['Link website universal', 'Masa aktif selamanya', 'Responsif di HP, tablet, desktop', 'QR code basic', 'Isi dikerjakan kami, tidak bisa diedit'], silver: ['3 halaman / section', 'Tampilan ringkas & elegan', 'Masa aktif 3 bulan', 'Responsif di semua layar', 'QR code basic'], gold: ['Sampai 8 section', 'Musik, mini game & password', 'Full interactive', 'Masa aktif 3 bulan', 'QR code custom'], canva: ['Link template Canva sampai 8 halaman', 'Bisa kamu edit sendiri kapan saja', 'Berlaku selamanya'] };
-    const AD = [['Tambah musik', 5000], ['Tambah section', 10000], ['Ganti warna', 5000], ['QR custom unik', 5000], ['Upgrade lifetime', 100000], ['Rush 4–8 jam', 5000]], AC = [['Bantuan edit', 10000], ['QR custom unik', 3000], ['Rush 4–8 jam', 5000]];
-    const ads = k => k == 'canva' ? AC : AD.filter(a => !(k == 'gold' && a[0] == 'Tambah musik') && !(k == 'lite' && a[0] == 'Upgrade lifetime'));
+    const BF = { lite: ['Link website universal', 'Masa aktif selamanya', 'Responsif di HP, tablet, desktop', 'QR code basic', 'Isi dikerjakan kami, tidak bisa diedit'], silver: ['3 halaman / section', 'Tampilan ringkas & elegan', 'Masa aktif 3 bulan sejak diserahkan, bisa diperpanjang', 'Responsif di semua layar', 'QR code basic'], gold: ['Sampai 8 section', 'Musik, mini game atau password', 'Full interactive', 'Masa aktif 3 bulan sejak diserahkan, bisa diperpanjang', 'QR code custom'], canva: ['Link template Canva sampai 8 halaman', 'Bisa kamu edit sendiri kapan saja', 'Berlaku selamanya'] };
+    const AD = [['Tambah musik', 5000], ['Tambah section', 10000], ['Ganti warna', 5000], ['QR custom unik', 5000], ['Rush 4–8 jam', 5000]], AC = [['Bantuan edit', 10000], ['QR custom unik', 3000], ['Rush 4–8 jam', 5000]];
+    const ads = k => k == 'canva' ? AC : AD.filter(a => !(k == 'gold' && (a[0] == 'Tambah musik' || a[0] == 'QR custom unik')));
     const HIDE_MB = ['silver', 'gold']; // paket yang moodboard-nya disembunyikan sementara (kosongkan array untuk menampilkan lagi)
     const MB = { lite: '#fff0b8,#fde9ae', silver: '#eef0d8,#d5deba', gold: '#ffe9a0,#f6cf61', canva: '#fbeedc,#efd8bb' };
     function openPv(i) {
