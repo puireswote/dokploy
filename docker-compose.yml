@@ -1,17 +1,19 @@
 services:
   webserver:
-    image: nginx:alpine
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: puvistoreable-webserver:latest
     restart: unless-stopped
-
     healthcheck:
       test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
       interval: 30s
       timeout: 5s
       retries: 3
       start_period: 10s
-
     networks:
       - dokploy-network
+
 
     labels:
       - "traefik.enable=true"
